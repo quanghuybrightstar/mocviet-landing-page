@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { headerLogic } from "./Header.logic";
 import LazyLoad from "react-lazyload";
 import "./Header.style.scss";
+import { menuHeader } from "@/constants/header";
 
 const HeaderComponent = (props) => {
-  let { dataNavBar } = headerLogic(props);
-
   let { type } = props;
 
   // Render Header Item
@@ -18,7 +17,7 @@ const HeaderComponent = (props) => {
         }`}
       >
         <Link to={item.path} className="nav-link">
-          {item.title}
+          {item.name}
         </Link>
       </li>
     );
@@ -53,7 +52,7 @@ const HeaderComponent = (props) => {
 
         <div className="collapse navbar-collapse" id="ftco-nav">
           <ul className="navbar-nav ml-auto">
-            {dataNavBar?.map((item) => renderHeaderItems(item))}
+            {menuHeader?.map((item) => renderHeaderItems(item))}
           </ul>
         </div>
       </div>

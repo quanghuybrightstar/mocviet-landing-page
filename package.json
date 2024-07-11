@@ -10,14 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazyload": "^3.2.0",
     "react-router-dom": "^6.22.1",
+    "react-spring": "^9.7.3",
     "sass": "^1.71.0",
     "scss": "^0.2.4",
-    "swiper": "^11.0.6",
-    "tailwindcss": "^3.4.3"
+    "swiper": "^11.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

@@ -59,13 +59,13 @@ const SlideComponent = () => {
   return (
     <section>
       <Swiper
+        mousewheel={true}
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 4500,
           disableOnInteraction: false,
         }}
-        pagination={true}
         modules={[Autoplay, Pagination]}
         className="home-slider home-slider-full js-fullheight"
       >

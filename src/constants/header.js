@@ -20,3 +20,8 @@ export const TypeHeader = {
     path: "/blog",
   },
 };
+
+export const menuHeader = Object.entries(TypeHeader).map(([key, value]) => ({
+  id: key,
+  ...value,
+}));

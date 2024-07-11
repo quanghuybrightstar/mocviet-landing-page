@@ -1,5 +1,6 @@
 :root {
   --white-color: #fff;
+  --primary-color: #ffb3b3;
 }
 
 a {
@@ -191,4 +192,24 @@ img {
 
 .contain_image {
   object-fit: contain;
+}
+
+.btn-primary-custom {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #1a202c;
+  color: #1a202c;
+  outline: none;
+  border-radius: 6px;
+  font-weight: normal;
+  &:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+.link-primary {
+  &:hover {
+    text-decoration: none;
+    color: #ffcdcd;
+  }
 }
