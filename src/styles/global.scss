@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --white-color: #fff;
+  --primary-color: #ffb3b3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.btn-primary-custom {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #1a202c;
+  color: #1a202c;
+  outline: none;
+  border-radius: 6px;
+  font-weight: normal;
+
+  &:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+.link-primary {
+  &:hover {
+    text-decoration: none;
+    color: #ffcdcd;
+  }
+}
