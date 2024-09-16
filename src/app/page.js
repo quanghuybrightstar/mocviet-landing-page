@@ -20,11 +20,7 @@ export default function HomePage() {
                 <div className="icon d-flex justify-content-center align-items-center">
                   <span className="flaticon-idea"></span>
                 </div>
-                <div
-                  data-aos="fade-up"
-                  data-aos-once="true"
-                  className="media-body p-2 mt-3"
-                >
+                <div className="media-body p-2 mt-3">
                   <h3 className="heading">Thiết kế hoàn hảo</h3>
                   <p>
                     Mộc Việt - Nơi thực hiện những ý tưởng hoàn hảo của bạn với
@@ -38,11 +34,7 @@ export default function HomePage() {
                 <div className="icon d-flex justify-content-center align-items-center">
                   <span className="flaticon-compass-symbol"></span>
                 </div>
-                <div
-                  data-aos="fade-up"
-                  data-aos-once="true"
-                  className="media-body p-2 mt-3"
-                >
+                <div className="media-body p-2 mt-3">
                   <h3 className="heading">Lên Kế Hoạch Chu Đáo</h3>
                   <p>
                     Tại Mộc Việt, chúng tôi chuyên về việc lên kế hoạch chu đáo
@@ -57,11 +49,7 @@ export default function HomePage() {
                 <div className="icon d-flex justify-content-center align-items-center">
                   <span className="flaticon-layers"></span>
                 </div>
-                <div
-                  data-aos="fade-up"
-                  data-aos-once="true"
-                  className="media-body p-2 mt-3"
-                >
+                <div className="media-body p-2 mt-3">
                   <h3 className="heading">Triển Khai Thông Minh</h3>
                   <p>
                     Mộc Việt triển khai thông minh, tạo ra không gian sống đẳng
@@ -100,7 +88,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div data-aos="fade-up" data-aos-once="true" className="col-lg-8">
+            <div className="col-lg-8">
               <div className="row d-md-flex align-items-center">
                 <div className="col-md d-flex justify-content-center counter-wrap">
                   <div className="block-18 text-center">
