@@ -1,4 +1,8 @@
 .header_container {
+  position: fixed;
+  top: -90px;
+  box-shadow: 0 2px 16px rgba(54, 56, 79, .06);
+  transition: transform 0.3s ease;
   .img_logo {
     height: 4rem;
     width: auto;

@@ -9533,7 +9533,6 @@ h5,
 }
 
 .ftco-navbar-light {
-  background: transparent !important;
   position: absolute;
   top: 20px;
   left: 0;
@@ -9981,7 +9980,7 @@ h5,
   height: 80px;
   background: #ffcdcd;
 }
-.owl-carousel.home-slider .slider-item .slider-text h1 {
+.owl-carousel.home-slider .slider-item .slider-text h2 {
   font-size: 40px;
   color: #fff;
   line-height: 1.5;
@@ -9989,11 +9988,11 @@ h5,
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-.owl-carousel.home-slider .slider-item .slider-text h1 a {
+.owl-carousel.home-slider .slider-item .slider-text h2 a {
   color: #000000;
 }
 @media (max-width: 991.98px) {
-  .owl-carousel.home-slider .slider-item .slider-text h1 {
+  .owl-carousel.home-slider .slider-item .slider-text h2 {
     font-size: 30px;
   }
 }

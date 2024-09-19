@@ -94,3 +94,9 @@ export const INFO = {
     },
   ],
 }
+
+export const DataSeo = {
+  seoTitle: "CÔNG TY TNHH KIẾN TRÚC & NỘI THẤT MỘC VIỆT",
+  seoDescription: "Mộc Việt là đơn vị tư vấn, thiết kế và thi công đồ gỗ nội thất với nhiều năm kinh nghiệm. Chúng tôi chuyên thiết kế và thi công nhà phố, biệt thự, căn hộ cao cấp và nhà máy công xưởng.",
+  seoImage: '/images/slide_2.png',
+}

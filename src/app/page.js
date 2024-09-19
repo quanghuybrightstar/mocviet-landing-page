@@ -1,6 +1,5 @@
 import HeaderComponent from "@/components/Header/Header";
-import { TypeHeader, INFO } from "@/libs/constants";
-import ImageZoom from "@/components/ImageZoom/ImageZoom";
+import { TypeHeader, INFO, DataSeo } from "@/libs/constants";
 import GridIntroImage from "@/components/GridIntroImage/GridIntroImage";
 import SlideComponent from "@/components/Slide/Slide";
 import NumberAnimated from "@/components/NumberAnimated/NumberAnimated";
@@ -10,6 +9,7 @@ export default function HomePage() {
   return (
     <div className="commondPage homePage">
       <HeaderComponent type={TypeHeader.HOME.path}></HeaderComponent>
+      <h1 className="hidden">{DataSeo.seoTitle}</h1>
       <SlideComponent />
 
       <section className="ftco-services bg-light">

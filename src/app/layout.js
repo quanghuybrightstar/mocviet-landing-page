@@ -2,17 +2,28 @@
 import { inter } from "@/libs/fonts";
 import "@/styles/global.scss";
 import Footer from "@/components/Footer/Footer";
+import { DataSeo } from "@/libs/constants";
 
 export const metadata = {
-  title: "CÔNG TY TNHH KIẾN TRÚC & NỘI THẤT MỘC VIỆT",
-  description:
-    "Mộc Việt là đơn vị tư vấn, thiết kế và thi công đồ gỗ nội thất với nhiều năm kinh nghiệm. Chúng tôi chuyên thiết kế và thi công nhà phố, biệt thự, căn hộ cao cấp và nhà máy công xưởng.",
+  title: DataSeo.seoTitle,
+  description: DataSeo.seoDescription,
   icon: "/favicon.ico",
+  openGraph: {
+    images: [DataSeo.seoImage],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
+  },
+  twitter: {
+    title: DataSeo.seoTitle,
+    description: DataSeo.seoDescription,
+    images: [DataSeo.seoImage],
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <link
           rel="apple-touch-icon"
@@ -34,7 +45,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
-          href="/favicon/safari-pinned-tab.svg"
+          href="/favicon/apple-touch-icon.png"
           color="#000000"
         />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />

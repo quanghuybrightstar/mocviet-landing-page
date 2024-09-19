@@ -2,6 +2,7 @@
 import "./Slide.style.scss";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Pagination, Autoplay } from "swiper/modules";
@@ -25,13 +26,14 @@ const SlideComponent = () => {
   // Render Slides
   const renderSlideItem = (slide) => {
     return (
-      <SwiperSlide
-        key={slide.id}
-        className="slider-item js-fullheight"
-        style={{
-          background: `url(/images/slide_${slide.id}.png) no-repeat top center /cover`,
-        }}
-      >
+      <SwiperSlide key={slide.id} className="slider-item js-fullheight">
+        <Image
+          src={`/images/slide_${slide.id}.png`}
+          alt="Slide"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="bottom"
+        />
         <div className="overlay"></div>
         <div className="container h-full">
           <div
@@ -42,23 +44,23 @@ const SlideComponent = () => {
               className="col-md-7 text ftco-animate"
               data-scrollax=" properties: { translateY: '70%' }"
             >
-              <h1
+              <h2
                 className="mb-4"
                 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
               >
-                We Create Amazing Architecture Designs
-              </h1>
+                Mộc Việt - Tinh hoa trong từng thiết kế
+              </h2>
               <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia. It is a paradisematic country, in
-                which roasted parts of sentences fly into your mouth.
+                Mộc Việt mang đến những giải pháp thiết kế kiến trúc đẳng cấp,
+                hài hòa giữa nghệ thuật và công năng, tạo nên không gian sống và
+                làm việc tinh tế, độc đáo.
               </p>
               <p>
                 <a
                   href="#"
                   className="btn btn-white btn-outline-white px-4 py-3 mt-3"
                 >
-                  View our works
+                  Tìm hiểu thêm
                 </a>
               </p>
             </div>

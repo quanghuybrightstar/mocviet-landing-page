@@ -1,10 +1,39 @@
+"use client";
 import "./Header.style.scss";
 import { menuHeader } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 const HeaderComponent = (props) => {
   let { type } = props;
+  const heightShowHeader = 500;
+  const [isShowHeader, setIsShowHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headerCategory = document.querySelector(".header_container");
+      const heightScrollY = window?.scrollY || 0;
+      let transformValue = "translate(0px, 0px)";
+      let showHeader = false;
+
+      if (heightScrollY > heightShowHeader) {
+        transformValue = `translate(0px, ${Math.min(
+          heightScrollY - heightShowHeader,
+          52
+        )}px)`;
+        showHeader = true;
+      }
+      headerCategory.style.transform = transformValue;
+      setIsShowHeader(showHeader);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Render Header Item
   const renderHeaderItems = (item) => {
@@ -24,7 +53,12 @@ const HeaderComponent = (props) => {
 
   return (
     <nav
-      className="navbar header_container navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      className={clsx(
+        {
+          "!fixed !top-[-52px] !bg-[#676864]": isShowHeader,
+        },
+        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light"
+      )}
       id="ftco-navbar"
     >
       <div className="container">
