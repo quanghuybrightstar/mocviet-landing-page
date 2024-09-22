@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { IconMenu } from "@/assets/icons";
 
 const HeaderComponent = (props) => {
   let { type } = props;
   const heightShowHeader = 500;
   const [isShowHeader, setIsShowHeader] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,13 +53,18 @@ const HeaderComponent = (props) => {
     );
   };
 
+  // Func toggle Menu
+  const handleToggleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
   return (
     <nav
       className={clsx(
         {
           "!fixed !top-[-52px] !bg-[#676864]": isShowHeader,
         },
-        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light"
+        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light relative"
       )}
       id="ftco-navbar"
     >
@@ -72,22 +79,33 @@ const HeaderComponent = (props) => {
           />
         </a>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler flex items-center gap-2"
           type="button"
           data-toggle="collapse"
           data-target="#ftco-nav"
           aria-controls="ftco-nav"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={handleToggleMenu}
         >
-          <span className="oi oi-menu"></span> Menu
+          <Image src={IconMenu} width={24} height={24} alt="Icon" />
+          Menu
         </button>
+      </div>
 
-        <div className=" navbar-collapse" id="ftco-nav">
-          <ul className="navbar-nav ml-auto">
-            {menuHeader?.map((item) => renderHeaderItems(item))}
-          </ul>
-        </div>
+      <div
+        className={clsx(
+          {
+            open: openMenu,
+            closed: !openMenu,
+          },
+          " navbar-collapse md:hidden bg-black"
+        )}
+        id="ftco-nav"
+      >
+        <ul className="navbar-nav ml-auto">
+          {menuHeader?.map((item) => renderHeaderItems(item))}
+        </ul>
       </div>
     </nav>
   );
