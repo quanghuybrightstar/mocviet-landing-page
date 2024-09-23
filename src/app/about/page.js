@@ -4,6 +4,23 @@ import GridIntroImage from "@/components/GridIntroImage/GridIntroImage";
 import SlideComponent from "@/components/Slide/Slide";
 import Parameter from "@/components/Paramater/Parameter";
 
+export const metadata = {
+  title:`About | ${DataSeo.seoTitle}`,
+  description: DataSeo.seoDescription,
+  icon: "/favicon.ico",
+  openGraph: {
+    images: [DataSeo.seoImage],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
+  },
+  twitter: {
+    title:`About | ${DataSeo.seoTitle}`,
+    description: DataSeo.seoDescription,
+    images: [DataSeo.seoImage],
+  }
+};
+
 export default function HomePage() {
   return (
     <div className="commondPage homePage">
