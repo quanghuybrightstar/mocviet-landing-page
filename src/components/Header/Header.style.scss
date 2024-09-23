@@ -3,32 +3,45 @@
   top: -90px;
   box-shadow: 0 2px 16px rgba(54, 56, 79, .06);
   transition: transform 0.3s ease;
+
   .img_logo {
     height: 4rem;
     width: auto;
   }
 
   .navbar-collapse {
-    transform: translateX(-100%); /* Bắt đầu với việc di chuyển ra ngoài */
-    transition: transform 0.2s ease-in-out; /* Thêm hiệu ứng chuyển động */
-    opacity: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    right: 0;
+    @media screen and (max-width: 768px) {
+      transform: translateX(-100%);
+      /* Bắt đầu với việc di chuyển ra ngoài */
+      transition: transform 0.2s ease-in-out;
+      /* Thêm hiệu ứng chuyển động */
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      right: 0;
+    }
   }
-  
+
   /* Khi mở menu */
   .navbar-collapse.open {
-    transform: translateX(0px); /* Hiển thị navbar bằng cách trượt xuống */
-    opacity: 1;
-    visibility: visible; /* Hiển thị khi mở */
+    @media screen and (max-width: 768px) {
+      transform: translateX(0px);
+      /* Hiển thị navbar bằng cách trượt xuống */
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hiển thị khi mở */
   }
-  
+
   /* Khi đóng menu */
   .navbar-collapse.closed {
-    transform: translateX(-50%); /* Trượt lên để ẩn menu */
-    opacity: 0;
-    visibility: hidden;
+    @media screen and (max-width: 768px) {
+      transform: translateX(-50%);
+      /* Trượt lên để ẩn menu */
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }

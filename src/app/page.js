@@ -2,8 +2,8 @@ import HeaderComponent from "@/components/Header/Header";
 import { TypeHeader, INFO, DataSeo } from "@/libs/constants";
 import GridIntroImage from "@/components/GridIntroImage/GridIntroImage";
 import SlideComponent from "@/components/Slide/Slide";
-import NumberAnimated from "@/components/NumberAnimated/NumberAnimated";
 import ListImagePreview from "@/components/ListImagePreview/ListImagePreview";
+import Parameter from "@/components/Paramater/Parameter";
 
 export default function HomePage() {
   return (
@@ -62,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* giới thiệu */}
+      {/* Giới thiệu */}
       <GridIntroImage
         nameSection={"Giới thiệu"}
         title={INFO.about.title}
@@ -72,65 +72,7 @@ export default function HomePage() {
       />
 
       {/* Thông số */}
-      <section
-        className="ftco-section ftco-counter img bg-center"
-        id="section-counter"
-        style={{ backgroundImage: "url(/images/bg_3.jpg)" }}
-        data-stellar-background-ratio="0.5"
-      >
-        <div className="container">
-          <div className="row d-md-flex align-items-center justify-content-center">
-            <div className="col-lg-4">
-              <div className="heading-section pl-md-5 heading-section-white">
-                <div className="pl-md-5 ml-md-5">
-                  <span className="subheading">Some</span>
-                  <h2 className="mb-4">Interesting Facts</h2>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-8">
-              <div className="row d-md-flex align-items-center">
-                <div className="col-md d-flex justify-content-center counter-wrap">
-                  <div className="block-18 text-center">
-                    <div className="text">
-                      <strong
-                        className="number !flex justify-center text-center"
-                        style={{ gap: "0.5rem" }}
-                      >
-                        {`>`} <NumberAnimated numberProps={8} />
-                      </strong>
-                      <span>Năm kinh nghiệm</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md flex justify-content-center counter-wrap">
-                  <div className="block-18 text-center">
-                    <div className="text">
-                      <strong
-                        className="number d-flex text-center"
-                        style={{ gap: "0.5rem" }}
-                      >
-                        <NumberAnimated numberProps={500} /> +
-                      </strong>
-                      <span>Công trình</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md d-flex justify-content-center counter-wrap">
-                  <div className="block-18 text-center">
-                    <div className="text">
-                      <strong className="number">
-                        <NumberAnimated numberProps={321} />
-                      </strong>
-                      <span>Khách hàng</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Parameter />
 
       {/* Công trình */}
       <section className="ftco-section">

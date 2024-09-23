@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import { IconMenu } from "@/assets/icons";
+import { IconMenu } from "@public/assets/icons";
 
 const HeaderComponent = (props) => {
   let { type } = props;
@@ -64,7 +64,7 @@ const HeaderComponent = (props) => {
         {
           "!fixed !top-[-52px] !bg-[#676864]": isShowHeader,
         },
-        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light relative"
+        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light"
       )}
       id="ftco-navbar"
     >
@@ -91,21 +91,20 @@ const HeaderComponent = (props) => {
           <Image src={IconMenu} width={24} height={24} alt="Icon" />
           Menu
         </button>
-      </div>
-
-      <div
-        className={clsx(
-          {
-            open: openMenu,
-            closed: !openMenu,
-          },
-          " navbar-collapse md:hidden bg-black"
-        )}
-        id="ftco-nav"
-      >
-        <ul className="navbar-nav ml-auto">
-          {menuHeader?.map((item) => renderHeaderItems(item))}
-        </ul>
+        <div
+          className={clsx(
+            {
+              open: openMenu,
+              closed: !openMenu,
+            },
+            " navbar-collapse bg-black md:bg-transparent"
+          )}
+          id="ftco-nav"
+        >
+          <ul className="navbar-nav ml-auto">
+            {menuHeader?.map((item) => renderHeaderItems(item))}
+          </ul>
+        </div>
       </div>
     </nav>
   );

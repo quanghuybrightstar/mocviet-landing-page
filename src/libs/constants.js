@@ -93,6 +93,11 @@ export const INFO = {
       title: 'Office Interior Design in Paris'
     },
   ],
+  home: {
+    experienceYears: 8,
+    projects: 500,
+    customers: 321
+  }
 }
 
 export const DataSeo = {
