@@ -32,6 +32,8 @@ const SlideComponent = () => {
           layout="fill"
           objectFit="cover"
           objectPosition="bottom"
+          priority
+          fetchPriority="high"
         />
         <div className="overlay_slider"></div>
         <div className="container h-full">

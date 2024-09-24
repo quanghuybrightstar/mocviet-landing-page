@@ -32,6 +32,8 @@ export default function HomePage() {
           layout="fill"
           objectFit="cover"
           objectPosition="bottom"
+          priority
+          fetchPriority="high"
         />
         <div className="overlay_slider"></div>
         <div className="container h-full">
