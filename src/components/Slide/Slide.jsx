@@ -1,5 +1,4 @@
 "use client";
-import "./Slide.style.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
@@ -34,7 +33,7 @@ const SlideComponent = () => {
           objectFit="cover"
           objectPosition="bottom"
         />
-        <div className="overlay"></div>
+        <div className="overlay_slider"></div>
         <div className="container h-full">
           <div
             className="h-full row no-gutters slider-text js-fullheight align-items-center justify-content-end"
@@ -81,7 +80,7 @@ const SlideComponent = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination]}
-        className="home-slider owl-carousel home-slider-full js-fullheight"
+        className="home-slider owl-carousel h-screen min-h-[750px] js-fullheight"
       >
         {dataSlides.map((slide) => renderSlideItem(slide))}
       </Swiper>

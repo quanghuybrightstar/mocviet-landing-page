@@ -4,7 +4,7 @@ export const TypeHeader = {
     path: "/",
   },
   ABOUT: {
-    name: "Giới thiệu",
+    name: "Về chúng tôi",
     path: "/about",
   },
   PROJECT: {
