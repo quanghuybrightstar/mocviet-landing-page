@@ -14,8 +14,11 @@ const Parameter = () => {
           <div className="col-lg-4">
             <div className="heading-section pl-md-5 heading-section-white">
               <div className="pl-md-5 ml-md-5">
-                <span className="subheading">Some</span>
-                <h2 className="mb-4">Interesting Facts</h2>
+                <span className="subheading">NHỮNG</span>
+                <h2 className="mb-4">
+                  SỰ THẬT
+                  <br /> ẤN TƯỢNG
+                </h2>
               </div>
             </div>
           </div>
@@ -28,7 +31,8 @@ const Parameter = () => {
                       className="number !flex justify-center text-center"
                       style={{ gap: "0.5rem" }}
                     >
-                      {`>`} <NumberAnimated numberProps={INFO.home.experienceYears} />
+                      {`>`}{" "}
+                      <NumberAnimated numberProps={INFO.home.experienceYears} />
                     </strong>
                     <span>Năm kinh nghiệm</span>
                   </div>

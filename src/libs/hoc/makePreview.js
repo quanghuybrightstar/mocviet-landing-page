@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/dist/photoswipe.css";
 
@@ -7,30 +7,11 @@ const maxHeightImagePreview = 900;
 
 function makePreviewImage(Component) {
   const Result = (props) => {
-    const [items, setItems] = useState([]);
-
-    const setListImage = (listImg) => {
-      setItems(
-        listImg?.map((i, index) => ({
-          ...i,
-          thumbnail: i.thumbnail || i.src,
-          title:
-            i.title ||
-            `<div style="text-align: center;">Ảnh ${index + 1}/${
-              listImg.length
-            }</div>`,
-          w: i.w || maxWidthImagePreview,
-          h: i.h || maxHeightImagePreview,
-        }))
-      );
-    };
-
     const lightboxRef = (useRef < PhotoSwipeLightbox) | (null > null);
 
     const openGallery = ({
       index,
       event: e = new MouseEvent("click"),
-      listImage,
     }) => {
       e?.preventDefault();
       const targetElement = e?.target;
@@ -46,10 +27,6 @@ function makePreviewImage(Component) {
         }
         anchorElement?.click();
         return;
-      }
-
-      if (listImage) {
-        setListImage(listImage);
       }
       if (lightboxRef.current) {
         lightboxRef.current?.destroy();
@@ -117,7 +94,6 @@ function makePreviewImage(Component) {
       <div id="my-gallery" className="h-full">
         <Component
           {...props}
-          setListImage={setListImage}
           openGallery={openGallery}
         />
       </div>

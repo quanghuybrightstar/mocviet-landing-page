@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 const SlideComponent = () => {
   const dataSlides = [
@@ -27,7 +27,7 @@ const SlideComponent = () => {
     return (
       <SwiperSlide key={slide.id} className="slider-item js-fullheight">
         <Image
-          src={`/images/slide_${slide.id}.png`}
+          src={`/images/slide/${slide.img}.webp`}
           alt="Slide"
           layout="fill"
           objectFit="cover"
@@ -72,21 +72,20 @@ const SlideComponent = () => {
   };
 
   return (
-    <section>
-      <Swiper
-        mousewheel={true}
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Pagination]}
-        className="home-slider owl-carousel h-screen min-h-[750px] js-fullheight"
-      >
-        {dataSlides.map((slide) => renderSlideItem(slide))}
-      </Swiper>
-    </section>
+    <Swiper
+      mousewheel={true}
+      spaceBetween={30}
+      centeredSlides={true}
+      autoplay={{
+        delay: 4500,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay]}
+      className="home-slider owl-carousel h-screen min-h-[750px] js-fullheight"
+      navigation
+    >
+      {dataSlides.map((slide) => renderSlideItem(slide))}
+    </Swiper>
   );
 };
 
