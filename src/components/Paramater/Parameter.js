@@ -12,10 +12,10 @@ const Parameter = () => {
       <div className="container">
         <div className="row d-md-flex align-items-center justify-content-center">
           <div className="col-lg-4">
-            <div className="heading-section pl-md-5 heading-section-white">
+            <div className="heading-section pl-md-5 heading-section-white text-center md:text-left">
               <div className="pl-md-5 ml-md-5">
                 <span className="subheading">NHỮNG</span>
-                <h2 className="mb-4">
+                <h2 className="mb-4 !text-[32px] md:!text-[40px]">
                   SỰ THẬT
                   <br /> ẤN TƯỢNG
                 </h2>
@@ -28,7 +28,7 @@ const Parameter = () => {
                 <div className="block-18 text-center">
                   <div className="text">
                     <strong
-                      className="number !flex justify-center text-center"
+                      className="number !flex justify-center text-center !text-[32px] md:!text-[40px]"
                       style={{ gap: "0.5rem" }}
                     >
                       {`>`}{" "}
@@ -42,7 +42,7 @@ const Parameter = () => {
                 <div className="block-18 text-center">
                   <div className="text">
                     <strong
-                      className="number d-flex text-center"
+                      className="number d-flex text-center !text-[32px] md:!text-[40px]"
                       style={{ gap: "0.5rem" }}
                     >
                       <NumberAnimated numberProps={INFO.home.projects} /> +
@@ -54,7 +54,7 @@ const Parameter = () => {
               <div className="col-md d-flex justify-content-center counter-wrap">
                 <div className="block-18 text-center">
                   <div className="text">
-                    <strong className="number">
+                    <strong className="number !text-[32px] md:!text-[40px]">
                       <NumberAnimated numberProps={INFO.home.customers} />
                     </strong>
                     <span>Khách hàng</span>

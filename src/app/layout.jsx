@@ -3,6 +3,7 @@ import { inter } from "@/libs/fonts";
 import "@/styles/global.scss";
 import Footer from "@/components/Footer/Footer";
 import { DataSeo } from "@/libs/constants";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
   title: DataSeo.seoTitle,
@@ -18,7 +19,7 @@ export const metadata = {
     title: DataSeo.seoTitle,
     description: DataSeo.seoDescription,
     images: [DataSeo.seoImage],
-  }
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -57,8 +58,8 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <NextTopLoader color="var(--primary-color)" showSpinner={false} />
         {children}
-
         <Footer />
       </body>
     </html>
