@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import makePreviewImage from "@/libs/hoc/makePreview";
 import { useMemo } from "react";
