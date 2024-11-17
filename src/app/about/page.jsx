@@ -1,28 +1,12 @@
-import HeaderComponent from "@/components/Header/Header";
+import HeaderComponent from "@/components/header";
 import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
-import Parameter from "@/components/Paramater/Parameter";
+import Parameter from "@/components/ui/parameter";
 import Image from "next/image";
-
-export const metadata = {
-  title: `About | ${DataSeo.seoTitle}`,
-  description: DataSeo.seoDescription,
-  openGraph: {
-    images: [DataSeo.seoImage],
-  },
-  alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
-  },
-  twitter: {
-    title: `About | ${DataSeo.seoTitle}`,
-    description: DataSeo.seoDescription,
-    images: [DataSeo.seoImage],
-  },
-};
 
 export default function HomePage() {
   return (
     <div className="commondPage homePage">
-      <HeaderComponent type={TypeHeader.ABOUT.path}></HeaderComponent>
+      <HeaderComponent type={TypeHeader.ABOUT.path} />
       <div className="relative h-screen min-h-[750px] home-slider owl-carousel">
         <Image
           src={`/images/slide/slide_3.webp`}
@@ -115,3 +99,19 @@ export default function HomePage() {
     </div>
   );
 }
+
+export const metadata = {
+  title: `${TypeHeader.ABOUT.name} | ${DataSeo.seoTitle}`,
+  description: DataSeo.seoDescription,
+  openGraph: {
+    images: [DataSeo.seoImage],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/about`,
+  },
+  twitter: {
+    title: `${TypeHeader.ABOUT.name} | ${DataSeo.seoTitle}`,
+    description: DataSeo.seoDescription,
+    images: [DataSeo.seoImage],
+  },
+};

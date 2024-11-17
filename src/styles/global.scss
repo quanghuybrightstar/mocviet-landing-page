@@ -7,6 +7,7 @@
   --foreground: #1A202C;
   --white-color: #fff;
   --primary-color: #ffb3b3;
+  --text-color: #1a202c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,24 @@
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+.commondPage {
+  padding-bottom: 10rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #bdbdbd
 }
 
 @layer utilities {

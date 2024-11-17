@@ -1,26 +1,9 @@
 /* eslint-disable @next/next/no-css-tags */
 import { inter } from "@/libs/fonts";
 import "@/styles/global.scss";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/footer";
 import { DataSeo } from "@/libs/constants";
 import NextTopLoader from "nextjs-toploader";
-
-export const metadata = {
-  title: DataSeo.seoTitle,
-  description: DataSeo.seoDescription,
-  icon: "/favicon.ico",
-  openGraph: {
-    images: [DataSeo.seoImage],
-  },
-  alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
-  },
-  twitter: {
-    title: DataSeo.seoTitle,
-    description: DataSeo.seoDescription,
-    images: [DataSeo.seoImage],
-  },
-};
 
 export default function RootLayout({ children }) {
   return (
@@ -57,7 +40,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/icomoon.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased text-[var(--text-color)]`}>
         <NextTopLoader color="var(--primary-color)" showSpinner={false} />
         {children}
         <Footer />
@@ -65,3 +48,21 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export const metadata = {
+  title: DataSeo.seoTitle,
+  description: DataSeo.seoDescription,
+  icon: "/favicon.ico",
+  openGraph: {
+    images: [DataSeo.seoImage],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
+  },
+  twitter: {
+    title: DataSeo.seoTitle,
+    description: DataSeo.seoDescription,
+    images: [DataSeo.seoImage],
+  },
+};
+

@@ -4227,7 +4227,6 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9533,8 +9532,7 @@ h5,
 }
 
 .ftco-navbar-light {
-  position: absolute;
-  top: 20px;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 3;
@@ -9570,7 +9568,7 @@ h5,
   opacity: 1 !important;
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
-  color: #fff;
+  color: #ffb3b3;
 }
 .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
   border: none;
@@ -9644,7 +9642,8 @@ h5,
   border-color: #ffcdcd;
 }
 .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffb3b3;
+  font-weight: 600;
 }
 .ftco-navbar-light .navbar-toggler {
   border: none;
@@ -10298,10 +10297,11 @@ h5,
   color: #fff;
   font-size: 30px;
 }
-.project:hover .text,
-.project:focus .text {
-  opacity: 0;
-  top: -100px;
+.project:hover .text h3,
+.project:focus .text h3{
+  /* opacity: 0;
+  top: -100px; */
+  color: #ff8080 !important;
 }
 .project:hover .icon,
 .project:focus .icon {

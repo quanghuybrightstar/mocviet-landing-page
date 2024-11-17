@@ -1,9 +1,10 @@
-import HeaderComponent from "@/components/Header/Header";
+import HeaderComponent from "@/components/header";
 import { TypeHeader, INFO, DataSeo } from "@/libs/constants";
-import GridIntroImage from "@/components/GridIntroImage/GridIntroImage";
-import SlideComponent from "@/components/Slide/Slide";
-import ListImagePreview from "@/components/ListImagePreview/ListImagePreview";
-import Parameter from "@/components/Paramater/Parameter";
+import GridIntroImage from "@/components/grid-intro-image";
+import SlideComponent from "@/components/slide";
+import Parameter from "@/components/ui/parameter";
+import ImageZoom from "@/components/ui/image-zoom";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -79,19 +80,26 @@ export default function HomePage() {
         <div className="container">
           <div className="row justify-content-center mb-5 pb-2">
             <div className="col-md-7 heading-section">
-              <h2 className="mb-4">Công trình của chúng tôi</h2>
-              <p>
-                Đây là nơi bạn có thể khám phá những dự án thiết kế nội thất
-                tuyệt vời, thể hiện sự sáng tạo và tinh tế trong từng chi tiết.
-                Với đội ngũ chuyên gia giàu kinh nghiệm và đam mê, chúng tôi cam
-                kết mang đến cho bạn những không gian sống đẳng cấp, tiện nghi
-                và ấm cúng. Hãy cùng khám phá những công trình nổi bật của chúng
-                tôi và cảm nhận sự khác biệt trong từng không gian.{" "}
-              </p>
+              <h2 className="mb-4">{INFO.projects.title}</h2>
+              <p>{INFO.projects.desc}</p>
             </div>
           </div>
         </div>
-        <ListImagePreview listImages={INFO.projects?.slice(0, 4)} />
+        <div className="row no-gutters">
+          {INFO.projects.list_home?.map((project) => (
+            <Link
+              href={`/project/${project.code}`}
+              key={project.id}
+              className="col-md-6 col-lg-3"
+            >
+              <ImageZoom
+                key={project.id}
+                src={project.src}
+                title={project.title}
+              />
+            </Link>
+          ))}
+        </div>
 
         <div className="flex justify-center text-center pt-5">
           <a href="/project" className="btn-primary-custom">

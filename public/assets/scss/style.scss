@@ -30,7 +30,6 @@ html {
 	// overflow-x: hidden;
 }
 body {
-	font-family: $font-primary;
 	background: $white;
 	font-size: 16px;
 	line-height: 1.8;
@@ -66,7 +65,7 @@ h1, h2, h3, h4, h5,
 .ftco-navbar-light {
 	background: transparent!important;
 	position: absolute;
-	top: 20px;
+	top: 0px;
 	left: 0;
 	right: 0;
 	z-index: 3;
