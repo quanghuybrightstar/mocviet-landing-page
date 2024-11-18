@@ -33,7 +33,8 @@ export default function ProjectDetailPage({ params }) {
               <Image
                 src={image}
                 alt={title}
-                fill
+                width={800}
+                height={720}
                 className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
               />
             </div>
