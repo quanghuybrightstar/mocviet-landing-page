@@ -7821,26 +7821,6 @@ button.bg-dark:focus {
   white-space: normal;
 }
 
-.shadow-sm {
-  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-.shadow {
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
-
-.shadow-lg {
-  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-}
-
-.shadow-none {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
 .w-25 {
   width: 25% !important;
 }
@@ -9528,7 +9508,7 @@ h5,
 }
 
 .text-primary {
-  color: #ffb3b3 !important;
+  color: #ff9999 !important;
 }
 
 .ftco-navbar-light {
@@ -9568,7 +9548,7 @@ h5,
   opacity: 1 !important;
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
-  color: #ffb3b3;
+  color: #ff9999 !important;
 }
 .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
   border: none;
@@ -9642,7 +9622,7 @@ h5,
   border-color: #ffcdcd;
 }
 .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-  color: #ffb3b3;
+  color: #ff9999 !important;
   font-weight: 600;
 }
 .ftco-navbar-light .navbar-toggler {
@@ -9665,7 +9645,7 @@ h5,
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 .ftco-navbar-light.scrolled .nav-item.active > a {
-  color: #ffb3b3 !important;
+  color: #ff9999 !important;
 }
 .ftco-navbar-light.scrolled .nav-item.cta > a {
   color: #fff !important;
@@ -9719,7 +9699,7 @@ h5,
   color: #000000 !important;
 }
 .ftco-navbar-light.scrolled .nav-link.active {
-  color: #ffb3b3 !important;
+  color: #ff9999 !important;
 }
 .ftco-navbar-light.scrolled.awake {
   margin-top: 0px;
@@ -9839,7 +9819,7 @@ h5,
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   margin-top: -10px;
-  color: #ffb3b3 !important;
+  color: #ff9999 !important;
   -moz-transition: all 0.7s ease;
   -o-transition: all 0.7s ease;
   -webkit-transition: all 0.7s ease;
@@ -10475,7 +10455,7 @@ textarea.form-control {
 }
 
 .bg-primary {
-  background: #ffb3b3 !important;
+  background: #ff9999 !important;
 }
 
 .about-author .desc h3 {
@@ -11080,7 +11060,7 @@ textarea.form-control {
 }
 
 .subs-wrap {
-  background: #ffb3b3 !important;
+  background: #ff9999 !important;
   display: block;
   width: 100%;
   color: rgba(255, 255, 255, 0.7);

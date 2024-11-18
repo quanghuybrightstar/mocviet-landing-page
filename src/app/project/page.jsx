@@ -7,7 +7,8 @@ export default function ProjectPage() {
     <div className="commondPage homePage">
       <HeaderComponent
         type={TypeHeader.PROJECT.path}
-        className="!bg-[#676864] relative"
+        className="!bg-white relative"
+        isSpecialHeader
       />
       <section className="py-10 md:py-16 flex flex-col items-center justify-center px-4">
         <h1 className="text-[32px] md:text-[40px]">{INFO.projects.title}</h1>

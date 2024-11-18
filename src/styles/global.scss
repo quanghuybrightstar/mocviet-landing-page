@@ -6,16 +6,17 @@
   --background: #ffffff;
   --foreground: #1A202C;
   --white-color: #fff;
-  --primary-color: #ffb3b3;
+  --primary-color: #ff9999;
   --text-color: #1a202c;
+  --bg-color: #fafafa;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #0a0a0a;
+//     --foreground: #ededed;
+//   }
+// }
 
 body {
   color: var(--foreground);

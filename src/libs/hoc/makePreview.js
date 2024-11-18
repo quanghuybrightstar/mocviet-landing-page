@@ -3,17 +3,14 @@ import React, { useRef, useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/dist/photoswipe.css";
 
-const maxWidthImagePreview = 1200;
-const maxHeightImagePreview = 900;
+const maxWidthImagePreview = 400;
+const maxHeightImagePreview = 300;
 
 function makePreviewImage(Component) {
   const Result = (props) => {
     const lightboxRef = (useRef < PhotoSwipeLightbox) | (null > null);
 
-    const openGallery = ({
-      index,
-      event: e = new MouseEvent("click"),
-    }) => {
+    const openGallery = ({ index, event: e = new MouseEvent("click") }) => {
       e?.preventDefault();
       const targetElement = e?.target;
       const anchorElement = targetElement?.closest("a");
@@ -54,6 +51,7 @@ function makePreviewImage(Component) {
 
           // Set thuộc tính cho image của gallery
           if (imageElement) {
+            console.log("imageElement ===", imageElement?.naturalWidth);
             itemData.src = imageElement?.getAttribute("src") || "";
             itemData.w = imageElement?.naturalWidth || maxWidthImagePreview;
             itemData.h = imageElement?.naturalHeight || maxHeightImagePreview;
@@ -62,7 +60,7 @@ function makePreviewImage(Component) {
         });
 
         lightbox.init();
-        if(lightboxRef.current) {
+        if (lightboxRef.current) {
           lightboxRef.current = lightbox;
         }
       }
@@ -93,10 +91,7 @@ function makePreviewImage(Component) {
 
     return (
       <div id="my-gallery" className="h-full">
-        <Component
-          {...props}
-          openGallery={openGallery}
-        />
+        <Component {...props} openGallery={openGallery} />
       </div>
     );
   };
