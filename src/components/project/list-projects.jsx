@@ -1,16 +1,22 @@
 import { INFO } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 const ListProject = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-8">
+    <div className="list-has-dot grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-8 md:gap-16 md:gap-y-20 md:pt-8">
       {Object.values(INFO.projects.list_detail).map((project, index) => (
         <Link
           prefetch
           href={`/project/${project.code}`}
           key={project.id}
-          className="flex flex-col gap-3 group overflow-hidden"
+          className={clsx(
+            {
+              "item-dot ": !(index % 2),
+            },
+            "flex flex-col gap-3 group relative"
+          )}
         >
           <div className="overflow-hidden relative h-[480px] rounded-lg">
             <Image

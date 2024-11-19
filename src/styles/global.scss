@@ -11,12 +11,11 @@
   --bg-color: #fafafa;
 }
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background: #0a0a0a;
-//     --foreground: #ededed;
-//   }
-// }
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
 
 body {
   color: var(--foreground);
@@ -76,4 +75,56 @@ body {
   right: 0;
   background: #000000;
   opacity: .3;
+}
+
+.list-has-dot {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 26px;
+    border: 5px solid #FFF;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    z-index: 1;
+    top: -26px;
+  }
+
+  &::after {
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 2px);
+    border-left: 4px solid #e7e7e7;
+  }
+
+  .item-dot {
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(100% + 21px);
+      width: 22px;
+      height: 22px;
+      border: 5px solid #FFF;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      z-index: 1;
+      top: calc(45%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    &::before,
+    &::after,
+    .item-dot::before {
+      display: none;
+    }
+  }
 }

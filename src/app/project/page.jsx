@@ -12,14 +12,16 @@ export default function ProjectPage() {
           isSpecialHeader
         />
       </div>
-      <section className="pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center px-4 ">
-        <h1 className="text-[32px] md:text-[40px]">{INFO.projects.title}</h1>
-        <h2 className="text-sm md:text-base max-w-[630px] text-center">
-          {INFO.projects.desc}
-        </h2>
-      </section>
-      <div className="container flex flex-col gap-10 md:gap-16 min-h-screen">
-        <ListProjects />
+      <div className="container ">
+        <section className="pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center px-4 ">
+          <h1 className="text-[32px] md:text-[40px]">{INFO.projects.title}</h1>
+          <h2 className="text-sm md:text-base max-w-[630px] text-center">
+            {INFO.projects.desc}
+          </h2>
+        </section>
+        <div className="flex flex-col gap-10 md:gap-16 min-h-screen">
+          <ListProjects />
+        </div>
       </div>
     </div>
   );

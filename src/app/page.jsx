@@ -114,7 +114,7 @@ export default function HomePage() {
         title={INFO.services?.[0].name}
         description={INFO.services?.[0].desc}
         srcBg={"service-1.jpg"}
-        linkViewMore={"/service"}
+        linkViewMore={"/"}
         posImage="right"
       />
     </div>
