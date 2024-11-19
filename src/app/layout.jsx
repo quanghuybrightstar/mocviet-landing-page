@@ -40,7 +40,9 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/icomoon.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
-      <body className={`${inter.className} antialiased text-[var(--text-color)]`}>
+      <body
+        className={`${inter.className} antialiased text-[var(--text-color)]`}
+      >
         <NextTopLoader color="var(--primary-color)" showSpinner={false} />
         {children}
         <Footer />
@@ -59,10 +61,4 @@ export const metadata = {
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`,
   },
-  twitter: {
-    title: DataSeo.seoTitle,
-    description: DataSeo.seoDescription,
-    images: [DataSeo.seoImage],
-  },
 };
-

@@ -5,12 +5,14 @@ import ListProjects from "@/components/project/list-projects";
 export default function ProjectPage() {
   return (
     <div className="commondPage homePage">
-      <HeaderComponent
-        type={TypeHeader.PROJECT.path}
-        className="!bg-white relative"
-        isSpecialHeader
-      />
-      <section className="py-10 md:py-16 flex flex-col items-center justify-center px-4">
+      <div className="md:min-h-[90px]">
+        <HeaderComponent
+          type={TypeHeader.PROJECT.path}
+          className="!bg-white relative"
+          isSpecialHeader
+        />
+      </div>
+      <section className="pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center px-4 ">
         <h1 className="text-[32px] md:text-[40px]">{INFO.projects.title}</h1>
         <h2 className="text-sm md:text-base max-w-[630px] text-center">
           {INFO.projects.desc}
@@ -31,10 +33,5 @@ export const metadata = {
   },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/project`,
-  },
-  twitter: {
-    title: `${TypeHeader.PROJECT.name} | ${DataSeo.seoTitle}`,
-    description: DataSeo.seoDescription,
-    images: [DataSeo.seoImage],
   },
 };

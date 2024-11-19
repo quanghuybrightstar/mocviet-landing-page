@@ -90,6 +90,7 @@ export const INFO = {
       kết mang đến cho bạn những không gian sống đẳng cấp, tiện nghi
       và ấm cúng. Hãy cùng khám phá những công trình nổi bật của chúng
       tôi và cảm nhận sự khác biệt trong từng không gian.`,
+    seo_desc_detail: "Hãy cùng Mộc Việt khám phá những thiết kế hoàn mỹ và độc đáo của công trình ",
     list_home: [
       {
         id: 1,

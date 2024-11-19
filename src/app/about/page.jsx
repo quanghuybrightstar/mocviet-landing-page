@@ -109,9 +109,4 @@ export const metadata = {
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/about`,
   },
-  twitter: {
-    title: `${TypeHeader.ABOUT.name} | ${DataSeo.seoTitle}`,
-    description: DataSeo.seoDescription,
-    images: [DataSeo.seoImage],
-  },
 };
