@@ -6,7 +6,7 @@
   --background: #ffffff;
   --foreground: #1A202C;
   --white-color: #fff;
-  --primary-color: #ff9999;
+  --primary-color: #e9713d;
   --text-color: #1a202c;
   --bg-color: #fafafa;
 }
@@ -24,6 +24,10 @@ body {
 
 .commondPage {
   padding-bottom: 10rem;
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 6rem;
+  }
 }
 
 ::-webkit-scrollbar {

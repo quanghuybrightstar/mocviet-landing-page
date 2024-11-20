@@ -23,11 +23,11 @@ const GridIntroImage = (props) => {
     >
       <div className="container">
         <div
-          className={`row no-gutters ${
+          className={`row no-gutters gap-y-4 ${
             posImage === "right" ? "flex-row-reverse" : ""
           }`}
         >
-          <div className="col-md-5 ">
+          <div className="col-md-5 h-[300px] md:h-auto">
             <Image
               src={`/images/${srcBg}`}
               alt="Image About"

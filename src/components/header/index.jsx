@@ -85,8 +85,8 @@ const HeaderComponent = (props) => {
             src="/images/logo_header.png"
             alt="Logo Header"
             className="contain_image img_logo"
-            width={66}
-            height={64}
+            width={128}
+            height={128}
           />
         </a>
         <button

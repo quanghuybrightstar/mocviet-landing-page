@@ -76,21 +76,21 @@ export default function HomePage() {
       <Parameter />
 
       {/* Công trình */}
-      <section className="ftco-section">
+      <section className="ftco-section pb-4 md:pb-2">
         <div className="container">
-          <div className="row justify-content-center mb-5 pb-2">
+          <div className="row justify-content-center mb-2 pb-2 md:mb-4">
             <div className="col-md-7 heading-section">
               <h2 className="mb-4">{INFO.projects.title}</h2>
               <p>{INFO.projects.desc}</p>
             </div>
           </div>
         </div>
-        <div className="row no-gutters">
+        <div className="row no-gutters gap-y-4">
           {INFO.projects.list_home?.map((project) => (
             <Link
               href={`/project/${project.code}`}
               key={project.id}
-              className="col-md-6 col-lg-3"
+              className="col-md-6 col-lg-3 min-h-[400px] h-[400px] relative"
             >
               <ImageZoom
                 key={project.id}
@@ -101,7 +101,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="flex justify-center text-center pt-5">
+        <div className="flex justify-center text-center pt-4">
           <a href="/project" className="btn-primary-custom">
             Xem thêm
           </a>

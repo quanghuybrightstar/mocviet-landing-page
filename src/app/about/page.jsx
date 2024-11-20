@@ -9,7 +9,7 @@ export default function HomePage() {
       <HeaderComponent type={TypeHeader.ABOUT.path} />
       <div className="relative h-screen min-h-[750px] home-slider owl-carousel">
         <Image
-          src={`/images/slide/slide_3.webp`}
+          src={`/images/slide/slide_2.webp`}
           alt="Slide"
           layout="fill"
           objectFit="cover"
