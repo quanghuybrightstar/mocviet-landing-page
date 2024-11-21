@@ -382,7 +382,7 @@ export const INFO = {
       },
       "nha-a-sy-bim-son": {
         id: 7,
-        title: "Nhà Anh Sỹ Bỉm Sơn",
+        title: "Nhà Anh Sỹ - Bỉm Sơn",
         code: "nha-a-sy-bim-son",
         images: [
           "/images/project/nha-a-sy-bim-son/1.jpg",
