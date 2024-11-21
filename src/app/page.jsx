@@ -88,9 +88,10 @@ export default function HomePage() {
         <div className="row no-gutters gap-y-4">
           {INFO.projects.list_home?.map((project) => (
             <Link
+              prefetch
               href={`/project/${project.code}`}
               key={project.id}
-              className="col-md-6 col-lg-3 min-h-[400px] h-[400px] relative"
+              className="col-md-6 col-lg-3 min-h-[450px] h-[450px] relative"
             >
               <ImageZoom
                 key={project.id}

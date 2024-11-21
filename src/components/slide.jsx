@@ -51,7 +51,7 @@ const SlideComponent = () => {
               >
                 Mộc Việt - Tinh hoa trong từng thiết kế
               </h2>
-              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+              <p className="!text-base md:!text-lg" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                 Mộc Việt mang đến những giải pháp thiết kế kiến trúc đẳng cấp,
                 hài hòa giữa nghệ thuật và công năng, tạo nên không gian sống và
                 làm việc tinh tế, độc đáo.

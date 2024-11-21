@@ -12,7 +12,7 @@ const ImageZoom = (props) => {
         height={634}
       />
       <div className="text">
-        <h3 className="" style={{ textShadow: "1px 1px 20px #000000" }}>
+        <h3 className="text-2xl" style={{ textShadow: "1px 1px 20px #000000" }}>
           {title || ""}
         </h3>
       </div>

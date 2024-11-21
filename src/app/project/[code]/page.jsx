@@ -3,11 +3,15 @@ import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
 import ListImagePreview from "@/components/list-image-preview";
 import Image from "next/image";
 import MyBreadCrumb from "@/components/my-breadcrumb";
+import { notFound } from "next/navigation";
 
 export default function ProjectDetailPage({ params }) {
   const { code } = params;
-  const { title, images = [] } = INFO.projects.list_detail[code];
+  if (!Object.keys(INFO.projects.list_detail)?.includes(code)) {
+    return notFound();
+  }
 
+  const { title = "", images = [] } = INFO.projects.list_detail?.[code];
   const breadCrumbs = [
     {
       url: TypeHeader.PROJECT.path,
@@ -52,7 +56,7 @@ export default function ProjectDetailPage({ params }) {
                   width={720}
                   height={720}
                   className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
-                  priority={index < 3 ? true : false}
+                  priority={index < 6 ? true : false}
                 />
               </div>
             ))}
@@ -65,7 +69,10 @@ export default function ProjectDetailPage({ params }) {
 
 export async function generateMetadata({ params }) {
   const { code } = params;
-  const { title, images = [] } = INFO.projects.list_detail[code];
+  if (!Object.keys(INFO.projects.list_detail)?.includes(code)) {
+    return notFound();
+  }
+  const { title = "" } = INFO.projects.list_detail?.[code];
 
   return {
     title: `${TypeHeader.PROJECT.name} ${title} | ${DataSeo.seoTitle}`,

@@ -9970,7 +9970,7 @@ h5,
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-text h2,
   .owl-carousel.home-slider .slider-text h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 .owl-carousel.home-slider .slider-text p {
@@ -10281,7 +10281,7 @@ h5,
 .project:focus .text h3{
   /* opacity: 0;
   top: -100px; */
-  color: #ff8080 !important;
+  color: #e9713d !important;
 }
 .project:hover .icon,
 .project:focus .icon {
