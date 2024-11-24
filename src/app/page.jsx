@@ -70,7 +70,7 @@ export default function HomePage() {
         description={INFO.about.desc}
         srcBg={"about.jpg"}
         linkViewMore={TypeHeader.ABOUT.path}
-        sectionClass="px-4"
+        sectionClass="container"
       />
 
       {/* Thông số */}
@@ -118,7 +118,7 @@ export default function HomePage() {
         srcBg={INFO.services.list_services?.[0].image}
         linkViewMore={TypeHeader.SERVICES.path}
         posImage="right"
-        sectionClass="px-4"
+        sectionClass="container"
       />
     </div>
   );
