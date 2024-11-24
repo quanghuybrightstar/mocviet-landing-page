@@ -1,4 +1,4 @@
-import { INFO } from "@/libs/constants";
+import { INFO, TypeHeader } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
@@ -9,7 +9,7 @@ const ListProject = () => {
       {Object.values(INFO.projects.list_detail).map((project, index) => (
         <Link
           prefetch
-          href={`/project/${project.code}`}
+          href={`${TypeHeader.PROJECTS.path}/${project.code}`}
           key={project.id}
           className={clsx(
             {
@@ -18,7 +18,7 @@ const ListProject = () => {
             "flex flex-col gap-3 group relative"
           )}
         >
-          <div className="overflow-hidden relative h-[480px] rounded-lg">
+          <div className="overflow-hidden relative h-[360px] md:h-[480px] rounded-lg">
             <Image
               alt={project.title}
               src={project.images?.[0]}
@@ -28,7 +28,7 @@ const ListProject = () => {
               priority={index < 6 ? true : false}
             />
           </div>
-          <h3 className="font-semibold text-[24px] group-hover:text-[var(--primary-color)]">
+          <h3 className="font-semibold text-xl md:text-2xl group-hover:text-[var(--primary-color)]">
             {project.title}
           </h3>
         </Link>

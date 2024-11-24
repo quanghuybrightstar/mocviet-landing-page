@@ -69,7 +69,8 @@ export default function HomePage() {
         title={INFO.about.title}
         description={INFO.about.desc}
         srcBg={"about.jpg"}
-        linkViewMore={"/about"}
+        linkViewMore={TypeHeader.ABOUT.path}
+        sectionClass="px-4"
       />
 
       {/* Thông số */}
@@ -89,7 +90,7 @@ export default function HomePage() {
           {INFO.projects.list_home?.map((project) => (
             <Link
               prefetch
-              href={`/project/${project.code}`}
+              href={`${TypeHeader.PROJECTS.path}/${project.code}`}
               key={project.id}
               className="col-md-6 col-lg-3 min-h-[450px] h-[450px] relative"
             >
@@ -103,7 +104,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center text-center pt-4">
-          <a href="/project" className="btn-primary-custom">
+          <a href={TypeHeader.PROJECTS.path} className="btn-primary-custom">
             Xem thêm
           </a>
         </div>
@@ -112,11 +113,12 @@ export default function HomePage() {
       {/* Service Home */}
       <GridIntroImage
         nameSection={"Dịch vụ"}
-        title={INFO.services?.[0].name}
-        description={INFO.services?.[0].desc}
-        srcBg={"service-1.jpg"}
-        linkViewMore={"/"}
+        title={INFO.services.list_services?.[0].name}
+        description={INFO.services.list_services?.[0].desc}
+        srcBg={INFO.services.list_services?.[0].image}
+        linkViewMore={TypeHeader.SERVICES.path}
         posImage="right"
+        sectionClass="px-4"
       />
     </div>
   );

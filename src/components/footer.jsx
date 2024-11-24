@@ -1,4 +1,4 @@
-import { INFO, menuHeader } from "@/libs/constants";
+import { INFO, menuHeader, TypeHeader } from "@/libs/constants";
 
 const Footer = () => {
   return (
@@ -51,9 +51,9 @@ const Footer = () => {
             <div className="ftco-footer-widget mb-4">
               <h2 className="ftco-heading-2">Dịch vụ</h2>
               <ul className="list-unstyled">
-                {INFO.services?.map((item) => (
+                {INFO.services.list_services?.map((item) => (
                   <li key={item.id}>
-                    <a href="/">{item.name}</a>
+                    <a href={TypeHeader.SERVICES.path}>{item.name}</a>
                   </li>
                 ))}
               </ul>

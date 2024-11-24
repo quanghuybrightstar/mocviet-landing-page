@@ -43,7 +43,7 @@ export default function HomePage() {
 
       <div className="container py-12 md:py-16 flex flex-col gap-10 md:gap-16">
         <section className="flex flex-col gap-8">
-          <h2 className="text-center font-bold text-3xl">
+          <h2 className="text-center font-bold text-2xl md:text-3xl">
             Giới thiệu về Mộc Việt
           </h2>
           <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:gap-16">
@@ -68,7 +68,7 @@ export default function HomePage() {
         </section>
 
         <section className="pt-8 flex flex-col gap-4 relative">
-          <h2 className="text-center font-bold text-3xl">
+          <h2 className="text-center font-bold text-2xl md:text-3xl">
             Sứ mệnh và tầm nhìn
           </h2>
           <div>
@@ -90,6 +90,7 @@ export default function HomePage() {
             alt="about"
             width={1300}
             height={700}
+            className="object-cover rounded-lg"
           />
         </section>
       </div>

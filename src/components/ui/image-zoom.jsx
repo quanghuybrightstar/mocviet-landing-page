@@ -5,7 +5,7 @@ const ImageZoom = (props) => {
   return (
     <div className={`project cursor-zoom-in h-full ${className}`}>
       <Image
-        src={src || "/images/project/project_2.webp"}
+        src={src || "/images/projects/project_2.webp"}
         className="img-fluid !h-full object-cover"
         alt="Mộc Việt Template"
         width={422}

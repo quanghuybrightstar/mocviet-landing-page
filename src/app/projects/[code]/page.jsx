@@ -14,8 +14,8 @@ export default function ProjectDetailPage({ params }) {
   const { title = "", images = [] } = INFO.projects.list_detail?.[code];
   const breadCrumbs = [
     {
-      url: TypeHeader.PROJECT.path,
-      name: TypeHeader.PROJECT.name,
+      url: TypeHeader.PROJECTS.path,
+      name: TypeHeader.PROJECTS.name,
     },
     {
       url: "",
@@ -27,7 +27,7 @@ export default function ProjectDetailPage({ params }) {
     <div className="commondPage homePage">
       <div className="md:min-h-[90px]">
         <HeaderComponent
-          type={TypeHeader.PROJECT.path}
+          type={TypeHeader.PROJECTS.path}
           className="!bg-white relative"
           isSpecialHeader
         />
@@ -75,13 +75,13 @@ export async function generateMetadata({ params }) {
   const { title = "" } = INFO.projects.list_detail?.[code];
 
   return {
-    title: `${TypeHeader.PROJECT.name} ${title} | ${DataSeo.seoTitle}`,
+    title: `${TypeHeader.PROJECTS.name} ${title} | ${DataSeo.seoTitle}`,
     description: INFO.projects.seo_desc_detail + title,
     openGraph: {
       images: [DataSeo.seoImage],
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/project/${code}`,
+      canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${code}`,
     },
   };
 }
