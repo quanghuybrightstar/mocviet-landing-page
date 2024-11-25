@@ -114,7 +114,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center flex-col items-center pt-4 text-center">
-                  <h4 className="font-semibold text-lg">{value.title}</h4>
+                  <h3 className="font-semibold text-lg">{value.title}</h3>
                   <p>{value.desc}</p>
                 </div>
               </div>
