@@ -67,7 +67,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="pt-8 flex flex-col gap-4 relative">
+        <section className="pt-10 flex flex-col gap-4 relative">
           <h2 className="text-center font-bold text-2xl md:text-3xl">
             Sứ mệnh và tầm nhìn
           </h2>
@@ -92,6 +92,34 @@ export default function HomePage() {
             height={700}
             className="object-cover rounded-lg"
           />
+        </section>
+
+        <section className="pt-10 flex flex-col gap-4 relative">
+          <h2 className="text-center font-bold text-2xl md:text-3xl">
+            6 giá trị cốt lõi của Mộc Việt
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-2 md:pt-6">
+            {INFO.about.core_values.map((value) => (
+              <div
+                key={value.id}
+                className="duration-500 ease-in-out hover:-translate-y-2.5 hover:shadow-xl md:min-h-[380px] rounded-[32px] bg-white border border-[#bdbdbd73] p-6"
+              >
+                <div className="relative min-h-[200px] h-[200px]">
+                  <Image
+                    src={value.image}
+                    alt={value.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex justify-center flex-col items-center pt-4 text-center">
+                  <h4 className="font-semibold text-lg">{value.title}</h4>
+                  <p>{value.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       </div>
 

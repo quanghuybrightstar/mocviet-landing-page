@@ -50,6 +50,44 @@ export const INFO = {
         content: `Sở hữu xưởng sản xuất quy mô lớn và văn phòng giao dịch tiện nghi, <strong>Mộc Việt</strong> đáp ứng linh hoạt mọi yêu cầu của khách hàng. Đội ngũ nhân sự lành nghề, được đào tạo từ các trường đại học uy tín, luôn yêu nghề và sẵn sàng tạo nên những sản phẩm nội thất bền đẹp, tinh tế, đáp ứng chuẩn mực thẩm mỹ cao trong thiết kế và thi công.`,
       },
     ],
+    core_values: [
+      {
+        id: 1,
+        title: "Uy tín",
+        desc: "Uy tín là nền tảng để Mộc Việt xây dựng niềm tin từ khách hàng",
+        image: "/images/cores/reputation.svg",
+      },
+      {
+        id: 2,
+        title: "Tiến Độ",
+        desc: "Đảm bảo tiến độ là cam kết không thể thiếu trong từng dự án",
+        image: "/images/cores/progress.webp",
+      },
+      {
+        id: 3,
+        title: "Chất Lượng",
+        desc: "Chất lượng vượt trội là mục tiêu hàng đầu trong mỗi sản phẩm",
+        image: "/images/cores/quality.svg",
+      },
+      {
+        id: 4,
+        title: "Sáng Tạo",
+        desc: "Sáng tạo là chìa khóa để chúng tôi tạo nên không gian độc đáo",
+        image: "/images/cores/creative.svg",
+      },
+      {
+        id: 5,
+        title: "Chuyên Nghiệp",
+        desc: "Tác phong chuyên nghiệp là cách Mộc Việt khẳng định giá trị của mình",
+        image: "/images/cores/professional.webp",
+      },
+      {
+        id: 6,
+        title: "Nỗ Lực",
+        desc: "Nỗ lực không ngừng giúp chúng tôi mang đến sự hài lòng tối đa",
+        image: "/images/cores/effort.svg",
+      },
+    ],
   },
   services: {
     title: `Dịch vụ của chúng tôi`,

@@ -19,7 +19,7 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--bg-color) !important;
 }
 
 .commondPage {
@@ -125,6 +125,7 @@ body {
   }
 
   @media (max-width: 768px) {
+
     &::before,
     &::after,
     .item-dot::before {
