@@ -51,14 +51,17 @@ const SlideComponent = () => {
               >
                 Mộc Việt - Tinh hoa trong từng thiết kế
               </h2>
-              <p className="!text-base md:!text-lg" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+              <p
+                className="!text-base md:!text-lg"
+                data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
+              >
                 Mộc Việt mang đến những giải pháp thiết kế kiến trúc đẳng cấp,
                 hài hòa giữa nghệ thuật và công năng, tạo nên không gian sống và
                 làm việc tinh tế, độc đáo.
               </p>
               <p>
                 <a
-                  href="#"
+                  href="/about"
                   className="btn btn-white btn-outline-white px-4 py-3 mt-3"
                 >
                   Tìm hiểu thêm
@@ -81,7 +84,7 @@ const SlideComponent = () => {
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
-      className="home-slider owl-carousel h-screen min-h-[750px] js-fullheight"
+      className="home-slider home-slider-full owl-carousel min-h-[750px] js-fullheight"
       navigation
     >
       {dataSlides.map((slide) => renderSlideItem(slide))}
