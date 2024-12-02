@@ -5,6 +5,7 @@ import SlideComponent from "@/components/slide";
 import Parameter from "@/components/ui/parameter";
 import ImageZoom from "@/components/ui/image-zoom";
 import Link from "next/link";
+import BoxAdvantage from "@/components/box-advantage";
 
 export default function HomePage() {
   return (
@@ -16,49 +17,25 @@ export default function HomePage() {
       <section className="ftco-services bg-light">
         <div className="container">
           <div className="row" style={{ position: "relative", zIndex: 2 }}>
-            <div className="col-md-4 d-flex align-self-stretch">
-              <div className="media block-6 services d-block">
-                <div className="icon d-flex justify-content-center align-items-center">
-                  <span className="flaticon-idea"></span>
+            {INFO.home.advantages.map((advantage) => {
+              return (
+                <div
+                  key={advantage.id}
+                  className="col-md-4 d-flex align-self-stretch"
+                >
+                  <BoxAdvantage
+                    title={advantage.title}
+                    iconClass={advantage.icon}
+                  >
+                    {advantage.list_details.map((detail, index) => (
+                      <li className="marker-primary pl-2" key={index}>
+                        {detail.content}
+                      </li>
+                    ))}
+                  </BoxAdvantage>
                 </div>
-                <div className="media-body p-2 mt-3">
-                  <h3 className="heading">Thiết kế hoàn hảo</h3>
-                  <p>
-                    Mộc Việt - Nơi thực hiện những ý tưởng hoàn hảo của bạn với
-                    tinh thần sáng tạo và tận tâm
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 d-flex align-self-stretch">
-              <div className="media block-6 services d-block">
-                <div className="icon d-flex justify-content-center align-items-center">
-                  <span className="flaticon-compass-symbol"></span>
-                </div>
-                <div className="media-body p-2 mt-3">
-                  <h3 className="heading">Lên Kế Hoạch Chu Đáo</h3>
-                  <p>
-                    Tại Mộc Việt, chúng tôi chuyên về việc lên kế hoạch chu đáo
-                    cho mỗi dự án thiết kế nội thất, tạo ra không gian sống và
-                    làm việc độc đáo, tinh tế và tiện nghi.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 d-flex align-self-stretch">
-              <div className="media block-6 services d-block">
-                <div className="icon d-flex justify-content-center align-items-center">
-                  <span className="flaticon-layers"></span>
-                </div>
-                <div className="media-body p-2 mt-3">
-                  <h3 className="heading">Triển Khai Thông Minh</h3>
-                  <p>
-                    Mộc Việt triển khai thông minh, tạo ra không gian sống đẳng
-                    cấp và tiện nghi bằng sự sáng tạo và kiến thức chuyên môn.
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>

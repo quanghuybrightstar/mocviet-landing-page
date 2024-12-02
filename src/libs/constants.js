@@ -515,6 +515,73 @@ export const INFO = {
     experienceYears: 8,
     projects: 500,
     customers: 321,
+    advantages: [
+      {
+        id: 1,
+        title:
+          "Thiết kế & thi công đa dạng các công trình (Xây dựng, nội thất)",
+        icon: "flaticon-idea",
+        list_details: [
+          {
+            id: 1,
+            content: "Biệt thư, nhà dân, chung cư…",
+          },
+          {
+            id: 2,
+            content:
+              "Công trình công cộng : Trung tâm thương mại, Trường học, thư viện…",
+          },
+          {
+            id: 3,
+            content:
+              "Công trình dịch vụ : Quán caffee, Nhà hàng, Game, Chuỗi spa làm đẹp, hiệu thuốc…",
+          },
+          {
+            id: 4,
+            content: "Văn phòng làm việc…",
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: "Luôn lấy tiêu chuẩn 4Đ làm kim chỉ nam",
+        icon: "flaticon-compass-symbol",
+        list_details: [
+          {
+            id: 1,
+            content: "Đúng số lượng",
+          },
+          {
+            id: 2,
+            content: "Đúng thời gian",
+          },
+          {
+            id: 3,
+            content: "Đúng chất lượng",
+          },
+          {
+            id: 4,
+            content: "Đúng giá thành",
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: "Đội ngũ nhân sự luôn sẵn hàng phụ vụ",
+        icon: "flaticon-layers",
+        list_details: [
+          {
+            id: 1,
+            content:
+              "Bảo hành có mặt trong vòng 48h : Kể từ khi nhận được yêu của KH",
+          },
+          {
+            id: 2,
+            content: "Tư vấn khách hàng, đối tác 24/24",
+          },
+        ],
+      },
+    ],
   },
   contact: {
     address:
