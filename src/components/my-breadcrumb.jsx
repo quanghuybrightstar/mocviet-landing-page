@@ -53,7 +53,7 @@ const MyBreadCrumb = ({ breadCrumbs = [] }) => {
     return <></>;
   }
   return (
-    <Box className="bg-white pt-4">
+    <Box className="pt-4">
       <Breadcrumbs
         separator={
           <Image
