@@ -3,7 +3,7 @@ import "./header.style.scss";
 import { menuHeader } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { IconMenu } from "@public/assets/icons";
 
@@ -12,6 +12,7 @@ const HeaderComponent = (props) => {
   const heightShowHeader = 450;
   const [isShowHeader, setIsShowHeader] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const headerRef = useRef(null);
 
   const handleScroll = () => {
     const headerCategory = document.querySelector(".header_container");
@@ -67,6 +68,23 @@ const HeaderComponent = (props) => {
     setOpenMenu(!openMenu);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Nếu click bên ngoài menu
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setOpenMenu(false);
+      }
+    };
+
+    // Thêm sự kiện click vào document
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup sự kiện khi component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav
       className={clsx(
@@ -78,6 +96,7 @@ const HeaderComponent = (props) => {
         className
       )}
       id="ftco-navbar"
+      ref={headerRef}
     >
       <div className="container">
         <a className="navbar-brand pointer_cursor" href="/">
@@ -108,11 +127,17 @@ const HeaderComponent = (props) => {
               open: openMenu,
               closed: !openMenu,
             },
-            " navbar-collapse bg-black md:bg-transparent"
+            " navbar-collapse h-[calc(100vh-74px)] md:h-auto"
           )}
           id="ftco-nav"
         >
-          <ul className="navbar-nav ml-auto">
+          {openMenu && (
+            <div
+              className="absolute inset-0 bg-black bg-opacity-0 z-10"
+              onClick={() => setOpenMenu(false)}
+            />
+          )}
+          <ul className="relative navbar-nav ml-auto z-20 bg-black lg:bg-transparent">
             {menuHeader?.map((item) => renderHeaderItems(item))}
           </ul>
         </div>

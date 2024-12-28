@@ -12,7 +12,7 @@
   }
 
   .navbar-collapse {
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1024px) {
       transform: translateX(-100%);
       /* Bắt đầu với việc di chuyển ra ngoài */
       transition: transform 0.2s ease-in-out;
@@ -27,7 +27,7 @@
 
   /* Khi mở menu */
   .navbar-collapse.open {
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1024px) {
       transform: translateX(0px);
       /* Hiển thị navbar bằng cách trượt xuống */
       opacity: 1;
@@ -39,7 +39,7 @@
 
   /* Khi đóng menu */
   .navbar-collapse.closed {
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1024px) {
       transform: translateX(-50%);
       /* Trượt lên để ẩn menu */
       opacity: 0;

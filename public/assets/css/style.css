@@ -29,7 +29,7 @@
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
+  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Work Sans", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
@@ -603,7 +603,7 @@ pre code {
     max-width: 720px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .container {
     max-width: 960px;
   }
@@ -1356,7 +1356,7 @@ pre code {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .col-lg {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -1996,7 +1996,7 @@ pre code {
   }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .table-responsive-lg {
     display: block;
     width: 100%;
@@ -4429,7 +4429,7 @@ input[type="button"].btn-block {
   }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
@@ -4437,7 +4437,7 @@ input[type="button"].btn-block {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .navbar-expand-lg {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -5822,7 +5822,7 @@ button.close {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .modal-lg {
     max-width: 800px;
   }
@@ -6725,7 +6725,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .d-lg-none {
     display: none !important;
   }
@@ -7376,7 +7376,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .flex-lg-row {
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;
@@ -7730,7 +7730,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .float-lg-left {
     float: left !important;
   }
@@ -8681,7 +8681,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .m-lg-0 {
     margin: 0 !important;
   }
@@ -9237,7 +9237,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .text-lg-left {
     text-align: left !important;
   }
@@ -9440,10 +9440,10 @@ a.text-dark:focus {
     size: a3;
   }
   body {
-    min-width: 992px !important;
+    min-width: 1024px !important;
   }
   .container {
-    min-width: 992px !important;
+    min-width: 1024px !important;
   }
   .navbar {
     display: none;
@@ -9517,7 +9517,7 @@ h5,
   right: 0;
   z-index: 3;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .ftco-navbar-light {
     background: #000000 !important;
     position: relative;
@@ -9577,7 +9577,7 @@ h5,
   margin-left: 20px;
   padding-left: 20px;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .ftco-navbar-light .navbar-nav > .nav-item.ftco-seperator {
     padding-left: 0;
     margin-left: 0;
@@ -9592,7 +9592,7 @@ h5,
   width: 2px;
   background: rgba(255, 255, 255, 0.05);
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .ftco-navbar-light .navbar-nav > .nav-item.ftco-seperator:before {
     display: none;
   }
@@ -9668,7 +9668,7 @@ h5,
 .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
   border-color: #ffcdcd;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .ftco-navbar-light.scrolled .navbar-nav {
     background: none;
     border-radius: 0px;
@@ -9751,7 +9751,7 @@ h5,
   line-height: 1;
   font-weight: 700;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .hero-wrap .slider-text h1 {
     font-size: 40px;
   }
@@ -9967,7 +9967,7 @@ h5,
 .owl-carousel.home-slider .slider-text h1 a {
   color: #000000;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   .owl-carousel.home-slider .slider-text h2,
   .owl-carousel.home-slider .slider-text h1 {
     font-size: 24px;
@@ -10568,7 +10568,7 @@ textarea.form-control {
   height: 400px;
   width: 100%;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   #map {
     height: 300px;
   }

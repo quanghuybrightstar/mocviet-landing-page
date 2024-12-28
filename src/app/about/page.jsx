@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <div className="commondPage homePage">
       <HeaderComponent type={TypeHeader.ABOUT.path} />
-      <div className="relative h-screen min-h-[750px] home-slider owl-carousel">
+      <div className="relative h-[calc(100vh-74px)] md:h-screen min-h-[750px] home-slider owl-carousel">
         <Image
           src={`/images/slide/slide_2.webp`}
           alt="Slide"
