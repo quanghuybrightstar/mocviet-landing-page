@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Link from "next/link";
 import { Autoplay } from "swiper/modules";
 
 const SlideComponent = () => {
@@ -60,12 +60,12 @@ const SlideComponent = () => {
                 làm việc tinh tế, độc đáo.
               </p>
               <p>
-                <a
+                <Link
                   href="/about"
                   className="btn btn-white btn-outline-white px-4 py-3 mt-3"
                 >
                   Tìm hiểu thêm
-                </a>
+                </Link>
               </p>
             </div>
           </div>

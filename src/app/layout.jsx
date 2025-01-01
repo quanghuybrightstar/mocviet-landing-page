@@ -37,11 +37,8 @@ export default function RootLayout({ children }) {
           color="#000000"
         />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <link rel="stylesheet" href="/assets/css/animate.css" />
 
-        <link rel="stylesheet" href="/assets/css/bootstrap-datepicker.css" />
         <link rel="stylesheet" href="/assets/css/flaticon.css" />
-        <link rel="stylesheet" href="/assets/css/icomoon.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body

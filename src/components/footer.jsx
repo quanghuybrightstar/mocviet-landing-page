@@ -1,4 +1,7 @@
 import { INFO, menuHeader, TypeHeader } from "@/libs/constants";
+import Link from "next/link";
+import Image from "next/image";
+import { IconFacebook } from "@public/assets/icons";
 
 const Footer = () => {
   return (
@@ -14,23 +17,19 @@ const Footer = () => {
               </p>
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                 <li className="">
-                  <a href="#">
-                    <span className="icon-twitter"></span>
-                  </a>
-                </li>
-                <li className="">
-                  <a
+                  <Link
                     target="_blank"
                     rel="noreferrer"
                     href="https://www.facebook.com/profile.php?id=100083410364772"
+                    className="relative flex items-center justify-center w-12 h-12"
                   >
-                    <span className="icon-facebook"></span>
-                  </a>
-                </li>
-                <li className="">
-                  <a href="#">
-                    <span className="icon-instagram"></span>
-                  </a>
+                    <Image
+                      src={IconFacebook}
+                      alt="icon facebook"
+                      fill
+                      className="p-[10px] duration-500 ease-in-out hover:scale-110"
+                    />
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -41,7 +40,7 @@ const Footer = () => {
               <ul className="list-unstyled">
                 {menuHeader.map((itemMenu) => (
                   <li key={itemMenu.id}>
-                    <a href={itemMenu.path}>{itemMenu.name}</a>
+                    <Link href={itemMenu.path}>{itemMenu.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -53,7 +52,7 @@ const Footer = () => {
               <ul className="list-unstyled">
                 {INFO.services.list_services?.map((item) => (
                   <li key={item.id}>
-                    <a href={TypeHeader.SERVICES.path}>{item.name}</a>
+                    <Link href={TypeHeader.SERVICES.path}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -69,16 +68,16 @@ const Footer = () => {
                     <span className="text">{INFO.contact.address}</span>
                   </li>
                   <li>
-                    <a href={`tel:${INFO.contact.phoneNumber}`}>
+                    <Link href={`tel:${INFO.contact.phoneNumber}`}>
                       <span className="icon icon-phone"></span>
                       <span className="text">{INFO.contact.phoneNumber}</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href={`mailto:${INFO.contact.email}`}>
+                    <Link href={`mailto:${INFO.contact.email}`}>
                       <span className="icon icon-envelope"></span>
                       <span className="text">{INFO.contact.email}</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -94,13 +93,13 @@ const Footer = () => {
               {/* <script>document.write(new Date().getFullYear());</script> */}
               All rights reserved | This website is made with
               <i className="icon-heart" aria-hidden="true"></i> by
-              <a
+              <Link
                 href="https://www.facebook.com/profile.php?id=100083410364772"
                 rel="noreferrer"
                 target="_blank"
               >
                 Mộc Việt
-              </a>
+              </Link>
             </p>
           </div>
         </div>

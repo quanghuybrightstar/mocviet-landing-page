@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 const GridIntroImage = (props) => {
   let {
@@ -67,9 +68,9 @@ const GridIntroImage = (props) => {
               className="pb-2"
             />
             {!!linkViewMore && (
-              <a href={linkViewMore} className="btn-custom link-primary ">
+              <Link href={linkViewMore} className="btn-custom link-primary ">
                 Tìm hiểu thêm <span className="ion-ios-arrow-forward"></span>
-              </a>
+              </Link>
             )}
           </div>
         </div>

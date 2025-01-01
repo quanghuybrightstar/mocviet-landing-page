@@ -81,9 +81,9 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center text-center pt-4">
-          <a href={TypeHeader.PROJECTS.path} className="btn-primary-custom">
+          <Link href={TypeHeader.PROJECTS.path} className="btn-primary-custom">
             Xem thêm
-          </a>
+          </Link>
         </div>
       </section>
 

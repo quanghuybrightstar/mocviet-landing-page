@@ -48,7 +48,6 @@ const HeaderComponent = (props) => {
         }`}
       >
         <Link
-          prefetch
           href={item.path}
           className={clsx(
             "nav-link",
@@ -99,7 +98,7 @@ const HeaderComponent = (props) => {
       ref={headerRef}
     >
       <div className="container">
-        <a className="navbar-brand pointer_cursor" href="/">
+        <Link className="navbar-brand pointer_cursor" href="/">
           <Image
             src="/images/logo_header.png"
             alt="Logo Header"
@@ -107,7 +106,7 @@ const HeaderComponent = (props) => {
             width={128}
             height={128}
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler flex items-center gap-2"
           type="button"
