@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-css-tags */
-import { inter } from "@/libs/fonts";
+import { interFont  } from "@/libs/fonts";
 import "@/styles/global.scss";
 import Footer from "@/components/footer";
 import { DataSeo } from "@/libs/constants";
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body
-        className={`${inter.className} antialiased text-[var(--text-color)]`}
+        className={`${interFont.className} antialiased text-[var(--text-color)]`}
       >
         <NextTopLoader color="var(--primary-color)" showSpinner={false} />
         {children}

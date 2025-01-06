@@ -22,20 +22,16 @@ body {
   background: var(--bg-color) !important;
 }
 
+.primary-color {
+  color: var(--primary-color);
+}
+
 .commondPage {
   padding-bottom: 10rem;
-
-  @media screen and (max-width: 768px) {
-    padding-bottom: 6rem;
-  }
 }
 
 .home-slider-full {
   height: 100vh;
-
-  @media screen and (max-width: 768px) {
-    height: calc(100vh - 74px);
-  }
 }
 
 ::-webkit-scrollbar {
@@ -133,6 +129,7 @@ body {
   }
 
   @media (max-width: 768px) {
+
     &::before,
     &::after,
     .item-dot::before {
@@ -148,12 +145,18 @@ body {
   font-weight: bold;
 }
 
-.icon-twitter:before {
-  content: "\f099";
-}
-.icon-facebook:before {
-  content: "\f09a";
-}
-.icon-instagram:before {
-  content: "\f16d";
+
+@media screen and (max-width: 768px) {
+  .commondPage {
+    padding-bottom: 6rem;
+  }
+
+  .home-slider-full {
+    height: calc(100vh - 74px);
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }

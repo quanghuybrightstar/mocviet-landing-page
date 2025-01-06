@@ -4,6 +4,7 @@ import ListImagePreview from "@/components/list-image-preview";
 import Image from "next/image";
 import MyBreadCrumb from "@/components/my-breadcrumb";
 import { notFound } from "next/navigation";
+import { calistogaFont } from "@/libs/fonts";
 
 export default function ProjectDetailPage({ params }) {
   const { code } = params;
@@ -58,6 +59,11 @@ export default function ProjectDetailPage({ params }) {
                   className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
                   priority={index < 6 ? true : false}
                 />
+                <div
+                  className={`${calistogaFont.className} text-2xl text-bold min-w-10 min-h-10 px-2 absolute top-0 left-0 rounded-tl-lg rounded-br-lg flex items-center justify-center primary-color bg-[#f0e9db]`}
+                >
+                  {index + 1}
+                </div>
               </div>
             ))}
           </ListImagePreview>

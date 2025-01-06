@@ -4,7 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import Image from "next/image";
 import { IconArrowRight } from "@public/assets/icons";
-import { inter } from "@/libs/fonts";
+import { interFont  } from "@/libs/fonts";
 
 const MyBreadCrumb = ({ breadCrumbs = [] }) => {
   const breadcrumbs1 = useMemo(
@@ -20,7 +20,7 @@ const MyBreadCrumb = ({ breadCrumbs = [] }) => {
                 key={url}
                 href={url || ""}
                 className={clsx(
-                  inter.className,
+                  interFont.className,
                   " text-sm font-bold cursor-pointer !text-[var(--text-color)] hover:!text-[var(--primary-color)] hover:underline"
                 )}
                 color="text.primary"
@@ -35,7 +35,7 @@ const MyBreadCrumb = ({ breadCrumbs = [] }) => {
               color={lastChild ? "text.primary" : "text.secondary"}
               component="span"
               className={clsx(
-                inter.className,
+                interFont.className,
                 { "!font-bold !text-[var(--text-color)] ": !lastChild },
                 " !text-sm "
               )}
