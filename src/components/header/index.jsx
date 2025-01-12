@@ -52,7 +52,7 @@ const HeaderComponent = (props) => {
           className={clsx(
             "nav-link",
             isShowHeader || isSpecialHeader
-              ? "md:!text-[var(--foreground)] text-[#ffffff]"
+              ? "lg:!text-[var(--foreground)] text-[#ffffff]"
               : "text-[#ffffff]"
           )}
         >

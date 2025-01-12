@@ -5,16 +5,30 @@ const nextConfig = {
     loader: "default",
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**', 
-        pathname: '/**', 
+        protocol: "https",
+        hostname: "**",
+        pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: '**', 
-        pathname: '/**', 
+        protocol: "http",
+        hostname: "**",
+        pathname: "/**",
       },
     ],
+  },
+  async header() {
+    return [
+      {
+        source: "/images/:path*",
+        locale: false,
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
   },
 };
 
