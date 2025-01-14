@@ -3,6 +3,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { IconFacebook } from "@public/assets/icons";
 
+const listContacts = [
+  {
+    id: 1,
+    name: INFO.contact.address,
+    icon: "https://img.icons8.com/bubbles/100/place-marker.png",
+    href: "https://maps.app.goo.gl/RBymNB7Q6HXqbJJU9",
+  },
+  {
+    id: 2,
+    name: INFO.contact.phoneNumber,
+    icon: "https://img.icons8.com/bubbles/100/phone--v1.png",
+    href: `tel:${INFO.contact.phoneNumber}`,
+  },
+  {
+    id: 3,
+    name: INFO.contact.email,
+    icon: "https://img.icons8.com/bubbles/100/new-post.png",
+    href: `tel:${INFO.contact.email}`,
+  },
+];
+
 const Footer = () => {
   return (
     <footer className="ftco-footer ftco-bg-dark ftco-section">
@@ -62,23 +83,22 @@ const Footer = () => {
             <div className="ftco-footer-widget mb-4">
               <h2 className="ftco-heading-2">Liên hệ</h2>
               <div className="block-23 mb-3">
-                <ul>
-                  <li>
-                    <span className="icon icon-map-marker"></span>
-                    <span className="text">{INFO.contact.address}</span>
-                  </li>
-                  <li>
-                    <Link href={`tel:${INFO.contact.phoneNumber}`}>
-                      <span className="icon icon-phone"></span>
-                      <span className="text">{INFO.contact.phoneNumber}</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={`mailto:${INFO.contact.email}`}>
-                      <span className="icon icon-envelope"></span>
-                      <span className="text">{INFO.contact.email}</span>
-                    </Link>
-                  </li>
+                <ul className="flex flex-col gap-4">
+                  {listContacts?.map((contact) => (
+                    <li className="group" key={contact.id}>
+                      <Link href={contact.href} target="_blank">
+                        <div className="relative w-8 h-8 min-w-8 min-h-8 mr-2">
+                          <Image
+                            src={contact.icon}
+                            alt="icon contact"
+                            fill
+                            className="duration-500 ease-in-out scale-105 group-hover:scale-125"
+                          />
+                        </div>
+                        <span className="text">{contact.name}</span>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -90,7 +110,6 @@ const Footer = () => {
               className="d-flex flex-wrap text-center align-items-center justify-content-center"
               style={{ gap: "0.35rem" }}
             >
-              {/* <script>document.write(new Date().getFullYear());</script> */}
               All rights reserved | This website is made with ❤️ by
               <Link
                 href="https://www.facebook.com/profile.php?id=100083410364772"

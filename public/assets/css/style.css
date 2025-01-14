@@ -10868,7 +10868,6 @@ textarea.form-control {
 .block-23 ul li > a {
   display: table;
   line-height: 1.5;
-  margin-bottom: 15px;
 }
 .block-23 ul li span {
   color: rgba(255, 255, 255, 0.7);
@@ -10876,7 +10875,7 @@ textarea.form-control {
 .block-23 ul li .icon,
 .block-23 ul li .text {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .block-23 ul li .icon {
   width: 40px;
