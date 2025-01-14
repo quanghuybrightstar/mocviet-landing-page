@@ -91,8 +91,7 @@ const Footer = () => {
               style={{ gap: "0.35rem" }}
             >
               {/* <script>document.write(new Date().getFullYear());</script> */}
-              All rights reserved | This website is made with
-              <i className="icon-heart" aria-hidden="true"></i> by
+              All rights reserved | This website is made with ❤️ by
               <Link
                 href="https://www.facebook.com/profile.php?id=100083410364772"
                 rel="noreferrer"
