@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-12 text-center">
             <p
-              className="d-flex flex-wrap text-center align-items-center justify-content-center"
+              className="d-flex flex-wrap text-center items-center justify-center"
               style={{ gap: "0.35rem" }}
             >
               All rights reserved | This website is made with ❤️ by

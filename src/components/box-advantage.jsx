@@ -3,7 +3,7 @@ const BoxAdvantage = (props) => {
 
   return (
     <div className="media block-6 services d-block">
-      <div className="icon d-flex justify-content-center align-items-center">
+      <div className="icon d-flex justify-center items-center">
         <span className={iconClass} />
       </div>
       <div className="media-body p-2 mt-3">

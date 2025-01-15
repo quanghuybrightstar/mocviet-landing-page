@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="overlay_slider"></div>
         <div className="container h-full">
           <div
-            className="h-full row no-gutters slider-text js-fullheight align-items-center justify-content-end"
+            className="h-full row no-gutters slider-text js-fullheight items-center justify-end"
             data-scrollax-parent="true"
           >
             <div

@@ -21,7 +21,7 @@ export default function HomePage() {
               return (
                 <div
                   key={advantage.id}
-                  className="col-md-4 d-flex align-self-stretch"
+                  className="col-md-4 d-flex self-stretch"
                 >
                   <BoxAdvantage
                     title={advantage.title}
@@ -56,7 +56,7 @@ export default function HomePage() {
       {/* Công trình */}
       <section className="ftco-section pb-4 md:pb-2">
         <div className="container">
-          <div className="row justify-content-center mb-2 pb-2 md:mb-4">
+          <div className="row justify-center mb-2 pb-2 md:mb-4">
             <div className="col-md-7 heading-section">
               <h2 className="mb-4">{INFO.projects.title}</h2>
               <p>{INFO.projects.desc}</p>

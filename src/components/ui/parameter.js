@@ -4,16 +4,16 @@ import { INFO } from "@/libs/constants";
 const Parameter = () => {
   return (
     <section
-      className="ftco-section ftco-counter img bg-center"
+      className="ftco-section ftco-counter img bg-center mt-24"
       id="section-counter"
       style={{ backgroundImage: "url(/images/bg_3.jpg)" }}
       data-stellar-background-ratio="0.5"
     >
       <div className="container">
-        <div className="row d-md-flex align-items-center justify-content-center">
+        <div className="row d-md-flex items-center justify-center">
           <div className="col-lg-4">
-            <div className="heading-section pl-md-5 heading-section-white text-center md:text-left">
-              <div className="pl-md-5 ml-md-5">
+            <div className="heading-section pl-lg-5 heading-section-white text-center md:text-left">
+              <div className="pl-lg-5 ml-lg-5">
                 <span className="subheading">NHỮNG</span>
                 <h2 className="mb-4 !text-[28px] md:!text-[40px]">
                   SỰ THẬT
@@ -23,8 +23,8 @@ const Parameter = () => {
             </div>
           </div>
           <div className="col-lg-8">
-            <div className="row d-md-flex align-items-center">
-              <div className="col-md d-flex justify-content-center counter-wrap">
+            <div className="row d-md-flex items-center">
+              <div className="col-md d-flex justify-center counter-wrap">
                 <div className="block-18 text-center">
                   <div className="text">
                     <strong
@@ -38,7 +38,7 @@ const Parameter = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md flex justify-content-center counter-wrap">
+              <div className="col-md flex justify-center counter-wrap">
                 <div className="block-18 text-center">
                   <div className="text">
                     <strong
@@ -51,7 +51,7 @@ const Parameter = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md d-flex justify-content-center counter-wrap">
+              <div className="col-md d-flex justify-center counter-wrap">
                 <div className="block-18 text-center">
                   <div className="text">
                     <strong className="number !text-[28px] md:!text-[40px]">

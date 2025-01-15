@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-css-tags */
-import { interFont  } from "@/libs/fonts";
+import { interFont } from "@/libs/fonts";
 import "@/styles/global.scss";
 import Footer from "@/components/footer";
 import { DataSeo } from "@/libs/constants";
 import NextTopLoader from "nextjs-toploader";
+import ButtonGo2Top from "@/components/button-go-2-top";
 
 export default function RootLayout({ children }) {
   return (
@@ -44,9 +45,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${interFont.className} antialiased text-[var(--text-color)]`}
       >
-        <NextTopLoader color="var(--primary-color)" showSpinner={false} />
-        {children}
-        <Footer />
+        <main className="min-h-screen">
+          <NextTopLoader color="var(--primary-color)" showSpinner={false} />
+          <ButtonGo2Top />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
