@@ -41,7 +41,7 @@ const Footer = () => {
                   <Link
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.facebook.com/profile.php?id=100083410364772"
+                    href={INFO.contact.facebook}
                     className="relative flex items-center justify-center w-12 h-12"
                   >
                     <Image
@@ -112,7 +112,7 @@ const Footer = () => {
             >
               All rights reserved | This website is made with ❤️ by
               <Link
-                href="https://www.facebook.com/profile.php?id=100083410364772"
+                href={INFO.contact.facebook}
                 rel="noreferrer"
                 target="_blank"
               >
