@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IconButton } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { scrollToElement } from "@/lib/helper";
+import { scrollToElement } from "@/libs/helper";
 
 const ButtonGo2Top = () => {
   const [showGo2TopButton, setShowGo2TopButton] = useState(false);
