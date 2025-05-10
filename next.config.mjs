@@ -20,7 +20,15 @@ const nextConfig = {
     return [
       {
         source: "/images/:path*",
-        locale: false,
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/assets/fonts/:path*",
         headers: [
           {
             key: "Cache-Control",

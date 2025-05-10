@@ -3,8 +3,8 @@ import React, { useRef, useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/dist/photoswipe.css";
 
-const maxWidthImagePreview = 960;
-const maxHeightImagePreview = 640;
+const maxWidthImagePreview = 960 * 2;
+const maxHeightImagePreview = 640 * 2;
 
 function makePreviewImage(Component) {
   const Result = (props) => {
@@ -52,8 +52,9 @@ function makePreviewImage(Component) {
           // Set thuộc tính cho image của gallery
           if (imageElement) {
             itemData.src = imageElement?.getAttribute("src") || "";
-            itemData.w = imageElement?.naturalWidth || maxWidthImagePreview;
-            itemData.h = imageElement?.naturalHeight || maxHeightImagePreview;
+            itemData.w = imageElement?.naturalWidth * 2 || maxWidthImagePreview;
+            itemData.h =
+              imageElement?.naturalHeight * 2 || maxHeightImagePreview;
           }
           return itemData;
         });
