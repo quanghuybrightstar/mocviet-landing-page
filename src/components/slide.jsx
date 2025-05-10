@@ -29,11 +29,10 @@ const SlideComponent = () => {
         <Image
           src={`/images/slide/${slide.img}.webp`}
           alt="Slide"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="bottom"
+          fill
           priority
           fetchPriority="high"
+          className="!object-bottom !object-cover"
         />
         <div className="overlay_slider" />
         <div className="container h-full">

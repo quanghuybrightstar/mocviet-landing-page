@@ -29,7 +29,7 @@ const ServicePage = (props) => {
           alt="Dịch vụ chính"
           className="object-cover rounded-lg hidden md:block"
         />
-        <div className="flex flex-col gap-6 md:gap-16 min-h-screen">
+        <div className="flex flex-col gap-6 md:gap-16 min-h-[100dvh]">
           {INFO.services.list_services.map((service, index) => (
             <GridIntroImage
               key={service.id}

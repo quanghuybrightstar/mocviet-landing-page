@@ -19,7 +19,7 @@ export default function ProjectPage() {
             {INFO.projects.desc}
           </h2>
         </section>
-        <div className="flex flex-col gap-10 md:gap-16 min-h-screen">
+        <div className="flex flex-col gap-10 md:gap-16 min-h-[100dvh]">
           <ListProjects />
         </div>
       </div>

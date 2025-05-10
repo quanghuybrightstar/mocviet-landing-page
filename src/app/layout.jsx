@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${interFont.className} antialiased text-[var(--text-color)]`}
       >
-        <main className="min-h-screen">
+        <main className="min-h-[100dvh]">
           <NextTopLoader color="var(--primary-color)" showSpinner={false} />
           <ButtonGo2Top />
           {children}

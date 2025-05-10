@@ -16,7 +16,7 @@ const nextConfig = {
       },
     ],
   },
-  async header() {
+  async headers() {
     return [
       {
         source: "/images/:path*",

@@ -41,7 +41,7 @@ export default function ProjectDetailPage({ params }) {
             {INFO.projects.seo_desc_detail} {title}
           </h2>
         </section>
-        <div className=" flex flex-col gap-10 md:gap-16 min-h-screen">
+        <div className=" flex flex-col gap-10 md:gap-16 min-h-[100dvh]">
           <ListImagePreview
             listImages={images}
             classNameList="!grid !grid-cols-1 md:!grid-cols-2 lg:!grid-cols-3 !gap-4 !gap-y-6"

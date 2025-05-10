@@ -7,15 +7,14 @@ export default function HomePage() {
   return (
     <div className="commondPage homePage">
       <HeaderComponent type={TypeHeader.ABOUT.path} />
-      <div className="relative h-[calc(100vh-74px)] md:h-screen min-h-[750px] home-slider owl-carousel">
+      <div className="relative h-[calc(100vh-74px)] md:h-[100dvh] min-h-[750px] home-slider owl-carousel">
         <Image
           src={`/images/slide/slide_2.webp`}
           alt="Slide"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="bottom"
+          fill
           priority
           fetchPriority="high"
+          className="!object-bottom !object-cover"
         />
         <div className="overlay_slider"></div>
         <div className="container h-full">
