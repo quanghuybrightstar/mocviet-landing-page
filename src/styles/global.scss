@@ -31,7 +31,7 @@ body {
 }
 
 .home-slider-full {
-  height: 100vh;
+  height: 100dvh;
 }
 
 ::-webkit-scrollbar {
@@ -139,7 +139,7 @@ body {
 }
 
 .marker-primary::marker {
-  content: '➤';
+  content: '➤' !important;
   font-size: 16px;
   color: var(--primary-color);
   font-weight: bold;
@@ -152,7 +152,7 @@ body {
   }
 
   .home-slider-full {
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
   }
 
   .container {

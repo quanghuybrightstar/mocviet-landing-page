@@ -126,7 +126,7 @@ const HeaderComponent = (props) => {
               open: openMenu,
               closed: !openMenu,
             },
-            " navbar-collapse h-[calc(100vh-74px)] md:h-auto"
+            " navbar-collapse h-[calc(100dvh-74px)] md:h-auto"
           )}
           id="ftco-nav"
         >

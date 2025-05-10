@@ -83,7 +83,7 @@ const SlideComponent = () => {
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
-      className="home-slider home-slider-full owl-carousel js-fullheight  min-h-[350px] max-h-[calc(100vh-74px)] md:min-h-[750px] md:max-h-screen"
+      className="home-slider home-slider-full owl-carousel js-fullheight  min-h-[350px] max-h-[calc(100dvh-74px)] md:min-h-[750px] md:max-h-screen"
       navigation
     >
       {dataSlides.map((slide) => renderSlideItem(slide))}
