@@ -54,6 +54,7 @@ export default function ProjectDetailPage({ params }) {
                 <Image
                   src={image}
                   alt={title}
+                  title={title}
                   width={720}
                   height={720}
                   className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
@@ -78,13 +79,19 @@ export async function generateMetadata({ params }) {
   if (!Object.keys(INFO.projects.list_detail)?.includes(code)) {
     return notFound();
   }
-  const { title = "" } = INFO.projects.list_detail?.[code];
+  const { title = "", images = [] } = INFO.projects.list_detail?.[code];
+
+  // Get first image for SEO with fallback to default image
+  const firstImage = images?.[0];
+  const seoImage = firstImage
+    ? `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${firstImage}`
+    : DataSeo.seoImage;
 
   return {
     title: `${TypeHeader.PROJECTS.name} ${title} | ${DataSeo.seoTitle}`,
     description: INFO.projects.seo_desc_detail + title,
     openGraph: {
-      images: [DataSeo.seoImage],
+      images: [seoImage],
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${code}`,

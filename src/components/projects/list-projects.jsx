@@ -22,6 +22,7 @@ const ListProject = () => {
           <div className="overflow-hidden relative h-[360px] md:h-[480px] rounded-lg">
             <Image
               alt={project.title}
+              title={project.title}
               src={project.images?.[0]}
               width={840}
               height={840}
