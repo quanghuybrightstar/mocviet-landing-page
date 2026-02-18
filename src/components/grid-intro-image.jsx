@@ -61,7 +61,7 @@ const GridIntroImage = (props) => {
           <div
             className={`${
               posImage === "right" ? "pr-md-5 mr-md-5 " : "pl-md-5 ml-md-5 "
-            } mb-5`}
+            } mb-2 md:mb-5`}
           >
             <div
               dangerouslySetInnerHTML={{ __html: description }}

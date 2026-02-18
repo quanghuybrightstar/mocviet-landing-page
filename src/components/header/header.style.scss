@@ -14,9 +14,8 @@
   .navbar-collapse {
     @media screen and (max-width: 1024px) {
       transform: translateX(-100%);
-      /* Bắt đầu với việc di chuyển ra ngoài */
-      transition: transform 0.2s ease-in-out;
-      /* Thêm hiệu ứng chuyển động */
+      /* Start off-screen (slide out to the left) */
+      transition: transform 0.2s ease-in, opacity 0.2s ease-in;
       opacity: 0;
       position: absolute;
       top: 100%;
@@ -25,24 +24,22 @@
     }
   }
 
-  /* Khi mở menu */
+  /* When menu is open */
   .navbar-collapse.open {
     @media screen and (max-width: 1024px) {
       transform: translateX(0px);
-      /* Hiển thị navbar bằng cách trượt xuống */
       opacity: 1;
       visibility: visible;
+      transition: transform 0.2s ease-in, opacity 0.2s ease-in;
     }
-
-    /* Hiển thị khi mở */
   }
 
-  /* Khi đóng menu */
+  /* When closing: delay visibility so close animation finishes before hiding */
   .navbar-collapse.closed {
     @media screen and (max-width: 1024px) {
-      transform: translateX(-50%);
-      /* Trượt lên để ẩn menu */
+      transform: translateX(-100%);
       opacity: 0;
+      transition: transform 0.2s ease-in, opacity 0.2s ease-in, visibility 0s linear 0.2s;
       visibility: hidden;
     }
   }

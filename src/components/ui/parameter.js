@@ -4,7 +4,7 @@ import { INFO } from "@/libs/constants";
 const Parameter = () => {
   return (
     <section
-      className="ftco-section ftco-counter img bg-center mt-24"
+      className="ftco-section ftco-counter img bg-center mt-12 md:mt-24"
       id="section-counter"
       style={{ backgroundImage: "url(/images/bg_3.jpg)" }}
       data-stellar-background-ratio="0.5"

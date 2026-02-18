@@ -31,7 +31,7 @@ function makePreviewImage(Component) {
       }
 
       if (index !== undefined && index !== null) {
-        // Option cho gallery
+        // Options for gallery
         const options = {
           bgOpacity: 1,
           gallery: "#my-gallery #list-images",
@@ -49,7 +49,7 @@ function makePreviewImage(Component) {
               ? element
               : element?.querySelector("img");
 
-          // Set thuộc tính cho image của gallery
+          // Set attributes for gallery image
           if (imageElement) {
             itemData.src = imageElement?.getAttribute("src") || "";
             itemData.w = imageElement?.naturalWidth * 2 || maxWidthImagePreview;
@@ -67,7 +67,7 @@ function makePreviewImage(Component) {
     };
 
     useEffect(() => {
-      // Hàm quay lại trang và close gallery khi gallery đang mở
+      // Handle back navigation and close gallery when it is open
       const handlePopState = (event) => {
         if (
           lightboxRef.current &&

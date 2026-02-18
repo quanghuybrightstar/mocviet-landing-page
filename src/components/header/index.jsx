@@ -38,14 +38,13 @@ const HeaderComponent = (props) => {
     };
   }, []);
 
-  // Render Header Item
+  // Render header item
   const renderHeaderItems = (item) => {
     return (
       <li
         key={item.id}
-        className={`nav-item pointer_cursor ${
-          item.path == type ? " active" : ""
-        }`}
+        className={`nav-item pointer_cursor ${item.path == type ? " active" : ""
+          }`}
       >
         <Link
           href={item.path}
@@ -62,23 +61,23 @@ const HeaderComponent = (props) => {
     );
   };
 
-  // Func toggle Menu
+  // Toggle menu handler
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Nếu click bên ngoài menu
+      // If click outside menu
       if (headerRef.current && !headerRef.current.contains(event.target)) {
         setOpenMenu(false);
       }
     };
 
-    // Thêm sự kiện click vào document
+    // Add click listener to document
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup sự kiện khi component unmount
+    // Cleanup listener on unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };

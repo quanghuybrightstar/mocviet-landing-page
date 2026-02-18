@@ -40,7 +40,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="container py-12 md:py-16 flex flex-col gap-10 md:gap-16">
+      <div className="container pt-12 pb-10 md:py-16 flex flex-col gap-10 md:gap-16">
         <section className="flex flex-col gap-8">
           <h2 className="text-center font-bold text-2xl md:text-3xl">
             Giới thiệu về Mộc Việt
@@ -122,7 +122,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      {/* Thông số */}
+      {/* Parameters */}
       <Parameter />
     </div>
   );

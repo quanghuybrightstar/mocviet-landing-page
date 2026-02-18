@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="row mb-5">
           <div className="col-md">
             <div className="ftco-footer-widget mb-4">
-              <h2 className="ftco-heading-2">Mộc Việt</h2>
+              <h2 className="ftco-heading-2 mb-3 md:mb-10">Mộc Việt</h2>
               <p>
                 Mộc Việt luôn cam kết mọi khách hàng của chúng tôi sẽ luôn được
                 sử dụng những công trình tốt nhất ,đẹp nhất và chất lượng nhất.
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
           <div className="col-md">
             <div className="ftco-footer-widget mb-4 ml-md-4">
-              <h2 className="ftco-heading-2">Liên kết</h2>
+              <h2 className="ftco-heading-2 mb-3 md:mb-10">Liên kết</h2>
               <ul className="list-unstyled">
                 {menuHeader.map((itemMenu) => (
                   <li key={itemMenu.id}>
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
           <div className="col-md">
             <div className="ftco-footer-widget mb-4">
-              <h2 className="ftco-heading-2">Dịch vụ</h2>
+              <h2 className="ftco-heading-2 mb-3 md:mb-10">Dịch vụ</h2>
               <ul className="list-unstyled">
                 {INFO.services.list_services?.map((item) => (
                   <li key={item.id}>
@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
           <div className="col-md">
             <div className="ftco-footer-widget mb-4">
-              <h2 className="ftco-heading-2">Liên hệ</h2>
+              <h2 className="ftco-heading-2 mb-3 md:mb-10">Liên hệ</h2>
               <div className="block-23 mb-3">
                 <ul className="flex flex-col gap-4">
                   {listContacts?.map((contact) => (

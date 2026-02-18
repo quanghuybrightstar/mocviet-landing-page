@@ -40,7 +40,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Giới thiệu */}
+      {/* Introduction */}
       <GridIntroImage
         nameSection={"Giới thiệu"}
         title={INFO.about.title}
@@ -50,10 +50,10 @@ export default function HomePage() {
         sectionClass="container"
       />
 
-      {/* Thông số */}
+      {/* Parameters */}
       <Parameter />
 
-      {/* Công trình */}
+      {/* Projects */}
       <section className="ftco-section pb-4 md:pb-2">
         <div className="container">
           <div className="row justify-center mb-2 pb-2 md:mb-4">
