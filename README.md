@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <img src="public/images/logo_header.png" width="28" alt="Mộc Việt" /> **Mộc Việt**
 
-## Getting Started
+**MOC VIET ARCHITECTURE & INTERIOR COMPANY LIMITED**
 
-First, run the development server:
+> 📐 Architecture · 🛋️ Interior design · 🪵 Wood interior
+
+Mộc Việt is a consulting, design and construction company for wood interior with many years of experience — townhouses, villas, high-end apartments and factory workshops. This site showcases projects, services and company values with a clean, modern front and full SEO.
+
+**Tech:** Next.js 14 (App Router), React 18, Tailwind CSS, SASS.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create `.env.local` (see `.env.example`):
 
-## Learn More
+| Variable | Description |
+|--------|-------------|
+| `NEXT_PUBLIC_ROOT_DOMAIN` | Canonical site URL (e.g. `https://mocviet.netlify.app`) |
 
-To learn more about Next.js, take a look at the following resources:
+Used for SEO canonical URLs and sitemap.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## SEO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Default metadata** in `src/app/layout.jsx` from `DataSeo` in `src/libs/constants.js` (title, description, openGraph image).
+- **Per-page metadata** on about, projects, services, and project detail (`[code]`) for dynamic titles and descriptions.
+- **Canonical** and **robots** driven by `NEXT_PUBLIC_ROOT_DOMAIN`.
+- **Google Tag Manager** wired in layout (script + noscript).
 
-## Deploy on Vercel
+To change default SEO: edit `DataSeo` in `src/libs/constants.js`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Run production server |
+| `npm run lint` | Run ESLint |
+
+## Deploy
+
+Build and run as a standard Next.js app. Compatible with Vercel, Netlify, or any Node host (set `NEXT_PUBLIC_ROOT_DOMAIN` to your production URL).
