@@ -11,8 +11,8 @@ Mộc Việt is a consulting, design and construction company for wood interior 
 ## Getting started
 
 ```bash
-npm install
-npm run dev
+yarn
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
@@ -21,8 +21,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Create `.env.local` (see `.env.example`):
 
-| Variable | Description |
-|--------|-------------|
+| Variable                  | Description                                             |
+| ------------------------- | ------------------------------------------------------- |
 | `NEXT_PUBLIC_ROOT_DOMAIN` | Canonical site URL (e.g. `https://mocviet.netlify.app`) |
 
 Used for SEO canonical URLs and sitemap.
@@ -38,12 +38,12 @@ To change default SEO: edit `DataSeo` in `src/libs/constants.js`.
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Development server |
-| `npm run build` | Production build |
-| `npm run start` | Run production server |
-| `npm run lint` | Run ESLint |
+| Command      | Description           |
+| ------------ | --------------------- |
+| `yarn dev`   | Development server    |
+| `yarn build` | Production build      |
+| `yarn start` | Run production server |
+| `yarn lint`  | Run ESLint            |
 
 ## Deploy
 

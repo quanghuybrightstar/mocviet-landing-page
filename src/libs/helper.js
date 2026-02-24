@@ -19,3 +19,9 @@ export const scrollToElement = (idElement, offset) => {
     });
   }
 };
+// Generate sequential project image paths: /images/projects/{code}/1.{ext} .. N.{ext}
+
+export const generateProjectImages = (code, count, ext = "webp") =>
+  Array.from({ length: count }, (_, i) =>
+    `/images/projects/${code}/${i + 1}.${ext}`
+  );
