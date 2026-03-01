@@ -5,23 +5,25 @@ import Image from "next/image";
 import MyBreadCrumb from "@/components/my-breadcrumb";
 import { notFound } from "next/navigation";
 import { calistogaFont } from "@/libs/fonts";
+import { fetchProjectByCode, fetchProjects } from "@/libs/sanity";
 
-export default function ProjectDetailPage({ params }) {
+/** Revalidate at most every 60s so Sanity publishes show up without full rebuild. */
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const projects = await fetchProjects();
+  return projects.map((p) => ({ code: p.code }));
+}
+
+export default async function ProjectDetailPage({ params }) {
   const { code } = params;
-  if (!Object.keys(INFO.projects.list_detail)?.includes(code)) {
-    return notFound();
-  }
+  const project = await fetchProjectByCode(code);
+  if (!project) return notFound();
 
-  const { title = "", images = [] } = INFO.projects.list_detail?.[code];
+  const { title = "", images = [] } = project;
   const breadCrumbs = [
-    {
-      url: TypeHeader.PROJECTS.path,
-      name: TypeHeader.PROJECTS.name,
-    },
-    {
-      url: "",
-      name: title,
-    },
+    { url: TypeHeader.PROJECTS.path, name: TypeHeader.PROJECTS.name },
+    { url: "", name: title },
   ];
 
   return (
@@ -58,7 +60,7 @@ export default function ProjectDetailPage({ params }) {
                   width={720}
                   height={720}
                   className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
-                  priority={index < 6 ? true : false}
+                  priority={index < 6}
                 />
                 <div
                   className={`${calistogaFont.className} text-2xl text-bold min-w-10 min-h-10 px-2 absolute top-0 left-0 rounded-tl-lg rounded-br-lg flex items-center justify-center primary-color bg-[#f0e9db]`}
@@ -76,23 +78,19 @@ export default function ProjectDetailPage({ params }) {
 
 export async function generateMetadata({ params }) {
   const { code } = params;
-  if (!Object.keys(INFO.projects.list_detail)?.includes(code)) {
-    return notFound();
-  }
-  const { title = "", images = [] } = INFO.projects.list_detail?.[code];
+  const project = await fetchProjectByCode(code);
+  if (!project) return notFound();
 
-  // Get first image for SEO with fallback to default image
+  const { title = "", images = [] } = project;
   const firstImage = images?.[0];
   const seoImage = firstImage
-    ? `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${firstImage}`
+    ? (firstImage.startsWith("http") ? firstImage : `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${firstImage}`)
     : DataSeo.seoImage;
 
   return {
     title: `${TypeHeader.PROJECTS.name} ${title} | ${DataSeo.seoTitle}`,
     description: INFO.projects.seo_desc_detail + title,
-    openGraph: {
-      images: [seoImage],
-    },
+    openGraph: { images: [seoImage] },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${code}`,
     },

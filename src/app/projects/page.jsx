@@ -1,8 +1,14 @@
 import HeaderComponent from "@/components/header";
 import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
 import ListProjects from "@/components/projects/list-projects";
+import { fetchProjects } from "@/libs/sanity";
 
-export default function ProjectPage() {
+/** Revalidate at most every 60s so Sanity publishes show up without full rebuild. */
+export const revalidate = 60;
+
+export default async function ProjectPage() {
+  const projects = await fetchProjects();
+
   return (
     <div className="commondPage homePage">
       <div className="md:min-h-[90px]">
@@ -20,7 +26,7 @@ export default function ProjectPage() {
           </h2>
         </section>
         <div className="flex flex-col gap-10 md:gap-16 min-h-[100dvh]">
-          <ListProjects />
+          <ListProjects projects={projects} />
         </div>
       </div>
     </div>

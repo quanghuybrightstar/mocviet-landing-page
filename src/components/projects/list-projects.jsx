@@ -1,17 +1,20 @@
-import { INFO, TypeHeader } from "@/libs/constants";
+import { TypeHeader } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { calistogaFont } from "@/libs/fonts";
 
-const ListProject = () => {
+/**
+ * @param {{ projects: Array<{ _id: string, title: string, code: string, imageUrls?: string[] }> }} props
+ */
+const ListProject = ({ projects = [] }) => {
   return (
     <div className="list-has-dot grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-8 md:gap-16 md:gap-y-20 md:pt-8">
-      {Object.values(INFO.projects.list_detail).map((project, index) => (
+      {projects.map((project, index) => (
         <Link
           prefetch
           href={`${TypeHeader.PROJECTS.path}/${project.code}`}
-          key={project.id}
+          key={project._id || project.code}
           className={clsx(
             {
               "item-dot ": !(index % 2),
@@ -23,11 +26,11 @@ const ListProject = () => {
             <Image
               alt={project.title}
               title={project.title}
-              src={project.images?.[0]}
+              src={project.imageUrls?.[0] || "/images/projects/project_1.webp"}
               width={840}
               height={840}
               className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
-              priority={index < 6 ? true : false}
+              priority={index < 6}
             />
             <div
               className={`${calistogaFont.className} text-3xl text-bold min-w-12 min-h-12 px-2 absolute top-0 left-0 rounded-tl-lg rounded-br-lg flex items-center justify-center primary-color bg-[#f0e9db]`}

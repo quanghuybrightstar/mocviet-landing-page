@@ -1,12 +1,10 @@
-import { INFO, TypeHeader } from "@/libs/constants";
+import { TypeHeader } from "@/libs/constants";
+import { fetchProjects } from "@/libs/sanity";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_ROOT_DOMAIN || "https://mocviet.netlify.app";
 
-// Priority: relative hint 0–1 within your site (not a Google ranking factor). Home = 1, main sections = 0.9, project detail = 0.8.
-// lastModified omitted: Google recommends only including it when you have a real last content-change date; avoid build-time "now" for static pages.
-
-export default function sitemap() {
+export default async function sitemap() {
   const staticRoutes = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: TypeHeader.ABOUT.path, priority: 0.9, changeFrequency: "monthly" },
@@ -14,7 +12,8 @@ export default function sitemap() {
     { path: TypeHeader.PROJECTS.path, priority: 0.9, changeFrequency: "weekly" },
   ];
 
-  const projectCodes = Object.keys(INFO.projects.list_detail || {});
+  const projects = await fetchProjects();
+  const projectCodes = projects.map((p) => p.code);
 
   const staticEntries = staticRoutes.map(({ path, priority, changeFrequency }) => ({
     url: `${baseUrl}${path}`,

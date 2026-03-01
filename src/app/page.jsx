@@ -7,7 +7,11 @@ import ImageZoom from "@/components/ui/image-zoom";
 import Link from "next/link";
 import BoxAdvantage from "@/components/box-advantage";
 
-export default function HomePage() {
+
+export default async function HomePage() {
+  /** Home "projects" block: fixed list of work types (thể loại công ty có thể làm), not the Sanity project list. */
+  const listHome = INFO.projects.list_home;
+
   return (
     <div className="commondPage homePage">
       <HeaderComponent type={TypeHeader.HOME.path}></HeaderComponent>
@@ -64,16 +68,16 @@ export default function HomePage() {
           </div>
         </div>
         <div className="row no-gutters gap-y-4">
-          {INFO.projects.list_home?.map((project) => (
+          {listHome?.map((project) => (
             <Link
               prefetch
               href={`${TypeHeader.PROJECTS.path}/${project.code}`}
-              key={project.id}
+              key={project.id || project.code}
               className="col-md-6 col-lg-3 min-h-[450px] h-[450px] relative"
             >
               <ImageZoom
-                key={project.id}
-                src={project.src}
+                key={project.id || project.code}
+                src={project.src || "/images/projects/project_1.webp"}
                 title={project.title}
               />
             </Link>
