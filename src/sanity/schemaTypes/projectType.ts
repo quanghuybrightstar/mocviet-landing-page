@@ -2,8 +2,9 @@ import { FolderIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 /**
- * Slugify Vietnamese title: remove diacritics via Unicode NFD, then lowercase, spaces → hyphens.
- * "Công trình test" → "cong-trinh-test". đ/Đ → d. No external lib.
+ * Slugify Vietnamese titles: remove diacritics via Unicode NFD, then
+ * lowercase, replace spaces with hyphens.
+ * Example: "Công trình test" -> "cong-trinh-test". đ/Đ -> d. No external lib.
  */
 function slugifyVietnamese(input: string): string {
   if (!input || typeof input !== "string") return "";
@@ -63,6 +64,25 @@ export const projectType = defineType({
       options: {
         layout: "grid",
       },
+      validation: (Rule) =>
+        Rule.custom((images: unknown) => {
+          // Sanity Studio expects each item in the array to have a `_key`
+          // so the list can be edited reliably.
+          // The "Missing keys" warning typically happens when data was imported
+          // via an API without setting `_key`.
+          if (!Array.isArray(images)) return true;
+          const hasMissingKey = images.some(
+            (img: any) =>
+              !img ||
+              typeof img !== "object" ||
+              typeof img._key !== "string" ||
+              img._key.trim().length === 0
+          );
+          return (
+            !hasMissingKey ||
+            "Mỗi ảnh trong 'Ảnh công trình' phải có _key (thường do import thiếu _key). Hãy chạy migration để sửa dữ liệu cũ."
+          );
+        }),
       of: [
         {
           type: "image",
