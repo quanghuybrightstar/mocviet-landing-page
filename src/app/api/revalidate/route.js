@@ -11,6 +11,17 @@ import { NextResponse } from "next/server";
  */
 export const dynamic = "force-dynamic";
 
+/**
+ * Browsers send GET — without this, opening the URL shows 404 even though the
+ * webhook endpoint exists. Sanity webhooks must still use POST + secret.
+ */
+export async function GET() {
+  return NextResponse.json({
+    ok: true,
+    message: "Revalidate endpoint is active. Use POST (Sanity webhook) with SANITY_REVALIDATE_SECRET.",
+  });
+}
+
 function unauthorized() {
   return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
 }
