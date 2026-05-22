@@ -102,7 +102,7 @@ body {
     border: 5px solid #FFF;
     background-color: var(--primary-color);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
     top: -26px;
   }
 
@@ -111,6 +111,7 @@ body {
     bottom: 0;
     left: calc(50% - 2px);
     border-left: 4px solid #e7e7e7;
+    z-index: 0;
   }
 
   .item-dot {
@@ -123,7 +124,7 @@ body {
       border: 5px solid #FFF;
       background-color: var(--primary-color);
       border-radius: 50%;
-      z-index: 1;
+      z-index: 5;
       top: calc(45%);
     }
   }
@@ -143,6 +144,26 @@ body {
   font-size: 16px;
   color: var(--primary-color);
   font-weight: bold;
+}
+
+@keyframes project-list-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-list-animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.project-list-animate--visible {
+  animation: project-list-fade-in-up 0.8s ease-out forwards;
 }
 
 

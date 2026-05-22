@@ -16,7 +16,10 @@ const PROJECTS_LIST_QUERY = `*[_type == "project"] | order(_createdAt asc) {
   _id,
   title,
   "code": coalesce(code.current, code),
-  "imageUrls": images[].asset->url
+  "imageUrls": images[].asset->url,
+  description,
+  tags,
+  tag
 }`;
 
 /** GROQ: single project by code (slug). code from slug type (code.current) or legacy string. */
@@ -47,7 +50,7 @@ function getFallbackProjectByCode(code) {
 /**
  * Fetch all projects from Sanity (used by /projects list and sitemap).
  * Falls back to INFO.projects.list_detail when Sanity has no documents or env is missing.
- * @returns {Promise<Array<{ _id: string, title: string, code: string, imageUrls: string[] }>>}
+ * @returns {Promise<Array<{ _id: string, title: string, code: string, imageUrls: string[], description?: string, tags?: string[], tag?: string }>>}
  */
 export async function fetchProjects() {
   if (!projectId || !dataset) return [];

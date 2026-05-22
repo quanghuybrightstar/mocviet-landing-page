@@ -1,5 +1,6 @@
 import { FolderIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
+import { PROJECT_TAG_OPTIONS } from "@/libs/project-tags";
 
 /**
  * Slugify Vietnamese titles: remove diacritics via Unicode NFD, then
@@ -21,7 +22,7 @@ function slugifyVietnamese(input: string): string {
 
 /**
  * Project (Công trình) document type.
- * Frontend uses: title, code (URL slug), images (array; GROQ resolves asset->url).
+ * Frontend uses: title, code (URL slug), images, tags, description.
  */
 export const projectType = defineType({
   name: "project",
@@ -89,6 +90,41 @@ export const projectType = defineType({
           options: { hotspot: true },
         },
       ],
+    }),
+    defineField({
+      name: "tags",
+      title: "Loại công trình",
+      type: "array",
+      description:
+        "Chọn tối đa 3 loại hiển thị trên trang danh sách công trình.",
+      of: [{ type: "string" }],
+      options: {
+        list: PROJECT_TAG_OPTIONS.map(({ title, value }) => ({ title, value })),
+        layout: "tags",
+      },
+      validation: (Rule) =>
+        Rule.max(3)
+          .unique()
+          .custom((tags: unknown) => {
+            if (!tags || !Array.isArray(tags) || tags.length === 0) return true;
+            const allowed = new Set(
+              PROJECT_TAG_OPTIONS.map((o) => o.value)
+            );
+            const invalid = tags.filter(
+              (t) => typeof t !== "string" || !allowed.has(t)
+            );
+            return (
+              invalid.length === 0 ||
+              "Mỗi tag phải nằm trong danh sách loại công trình"
+            );
+          }),
+    }),
+    defineField({
+      name: "description",
+      title: "Mô tả ngắn",
+      type: "text",
+      rows: 3,
+      description: "Hiển thị dưới tên công trình trên trang /projects.",
     }),
   ],
   preview: {

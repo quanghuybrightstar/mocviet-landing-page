@@ -10,22 +10,20 @@ export default async function ProjectPage() {
   const projects = await fetchProjects();
 
   return (
-    <div className="commondPage homePage">
-      <div className="md:min-h-[90px]">
-        <HeaderComponent
-          type={TypeHeader.PROJECTS.path}
-          className="!bg-white relative"
-          isSpecialHeader
-        />
-      </div>
+    <div className="commondPage homePage min-h-dvh bg-[#fffaf8] md:bg-[#fafafa]">
+      <HeaderComponent
+        type={TypeHeader.PROJECTS.path}
+        className="!bg-white"
+        isSpecialHeader
+      />
       <div className="container">
-        <section className="pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center md:px-4 ">
+        <section className="pt-[74px] pb-8 md:pt-[90px] md:pb-11 flex flex-col items-center justify-center md:px-4 ">
           <h1 className="text-[28px] md:text-[40px]">{INFO.projects.title}</h1>
-          <h2 className="text-sm md:text-base max-w-[630px] text-center">
+          <h2 className="text-sm md:text-base max-w-[960px] text-center">
             {INFO.projects.desc}
           </h2>
         </section>
-        <div className="flex flex-col gap-10 md:gap-16 min-h-[100dvh]">
+        <div className="flex flex-col gap-8 md:gap-16 min-h-[100dvh]">
           <ListProjects projects={projects} />
         </div>
       </div>

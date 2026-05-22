@@ -28,18 +28,18 @@ export default async function ProjectDetailPage({ params }) {
 
   return (
     <div className="commondPage homePage">
-      <div className="md:min-h-[90px]">
-        <HeaderComponent
-          type={TypeHeader.PROJECTS.path}
-          className="!bg-white relative"
-          isSpecialHeader
-        />
-      </div>
+      <HeaderComponent
+        type={TypeHeader.PROJECTS.path}
+        className="!bg-white"
+        isSpecialHeader
+      />
       <div className="container">
-        <MyBreadCrumb breadCrumbs={breadCrumbs} />
-        <section className="pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center px-4 ">
+        <div className="pt-[74px] md:pt-[90px]">
+          <MyBreadCrumb breadCrumbs={breadCrumbs} />
+        </div>
+        <section className="pt-6 pb-8 md:pt-10 md:pb-11 flex flex-col items-center justify-center px-4 ">
           <h1 className="text-[32px] md:text-[40px]">{title}</h1>
-          <h2 className="text-sm md:text-base max-w-[630px] text-center">
+          <h2 className="text-sm md:text-base max-w-[960px] text-center">
             {INFO.projects.seo_desc_detail} {title}
           </h2>
         </section>

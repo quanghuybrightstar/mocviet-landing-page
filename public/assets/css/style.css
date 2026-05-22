@@ -1419,7 +1419,7 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
 }
 .navbar > .container,
 .navbar > .container-fluid {
@@ -4352,8 +4352,8 @@ h5,
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
   font-size: 14px;
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   padding-left: 20px;
   padding-right: 20px;
   color: #fff;

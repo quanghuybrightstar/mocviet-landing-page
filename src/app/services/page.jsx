@@ -6,15 +6,13 @@ import Image from "next/image";
 const ServicePage = (props) => {
   return (
     <div className="commondPage homePage">
-      <div className="md:min-h-[90px]">
-        <HeaderComponent
-          type={TypeHeader.SERVICES.path}
-          className="!bg-white relative"
-          isSpecialHeader
-        />
-      </div>
+      <HeaderComponent
+        type={TypeHeader.SERVICES.path}
+        className="!bg-white"
+        isSpecialHeader
+      />
       <div className="container">
-        <section className="px-0 pt-6 pb-8 md:pt-12 md:pb-14 flex flex-col items-center justify-center md:px-4 ">
+        <section className="px-0 pt-[74px] pb-8 md:pt-[90px] md:pb-11 flex flex-col items-center justify-center md:px-4 ">
           <h1 className="text-[28px] md:text-[40px]">{INFO.services.title}</h1>
           <h2
             className="text-sm md:text-base max-w-[625px] text-center"

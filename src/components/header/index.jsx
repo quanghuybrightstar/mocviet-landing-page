@@ -3,42 +3,66 @@ import "./header.style.scss";
 import { menuHeader } from "@/libs/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import clsx from "clsx";
 import { IconMenu } from "@public/assets/icons";
 
+/** Gần đỉnh trang: luôn hiện header */
+const SCROLL_TOP_THRESHOLD = 12;
+/** Lệch scroll tối thiểu để đổi hướng (tránh giật) */
+const SCROLL_DELTA_MIN = 8;
+/** Sau ngưỡng này (home): header hiện dạng nền solid + chữ tối */
+const SCROLL_SOLID_START = 450;
+
 const HeaderComponent = (props) => {
   let { type, className, isSpecialHeader = false } = props;
-  const heightShowHeader = 450;
-  const [isShowHeader, setIsShowHeader] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
   const [openMenu, setOpenMenu] = useState(false);
   const headerRef = useRef(null);
+  const lastScrollY = useRef(0);
+  const headerVisibleRef = useRef(true);
+  const openMenuRef = useRef(false);
 
-  const handleScroll = () => {
-    const headerCategory = document.querySelector(".header_container");
-    const heightScrollY = window?.scrollY || 0;
-    let transformValue = "translate(0px, 0px)";
-    let showHeader = false;
+  const handleScroll = useCallback(() => {
+    const y = window.scrollY || 0;
+    const delta = y - lastScrollY.current;
+    let visible = headerVisibleRef.current;
 
-    if (heightScrollY > heightShowHeader) {
-      transformValue = `translate(0px, ${Math.min(
-        heightScrollY - heightShowHeader,
-        52
-      )}px)`;
-      showHeader = true;
+    if (openMenuRef.current) {
+      visible = true;
+    } else if (y <= SCROLL_TOP_THRESHOLD) {
+      visible = true;
+    } else if (delta > SCROLL_DELTA_MIN) {
+      visible = false;
+    } else if (delta < -SCROLL_DELTA_MIN) {
+      visible = true;
     }
-    headerCategory.style.transform = transformValue;
-    setIsShowHeader(showHeader);
-  };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    headerVisibleRef.current = visible;
+    lastScrollY.current = y;
+    setScrollY(y);
+    setHeaderVisible(visible);
   }, []);
 
-  // Render header item
+  useEffect(() => {
+    openMenuRef.current = openMenu;
+    if (openMenu) {
+      headerVisibleRef.current = true;
+      setHeaderVisible(true);
+    }
+  }, [openMenu]);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY || 0;
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  const useSolidHeader =
+    headerVisible && (isSpecialHeader || scrollY > SCROLL_SOLID_START);
+
   const renderHeaderItems = (item) => {
     return (
       <li
@@ -50,7 +74,7 @@ const HeaderComponent = (props) => {
           href={item.path}
           className={clsx(
             "nav-link",
-            isShowHeader || isSpecialHeader
+            useSolidHeader || isSpecialHeader
               ? "lg:!text-[var(--foreground)] text-[#ffffff]"
               : "text-[#ffffff]"
           )}
@@ -61,23 +85,19 @@ const HeaderComponent = (props) => {
     );
   };
 
-  // Toggle menu handler
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // If click outside menu
       if (headerRef.current && !headerRef.current.contains(event.target)) {
         setOpenMenu(false);
       }
     };
 
-    // Add click listener to document
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup listener on unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -87,10 +107,11 @@ const HeaderComponent = (props) => {
     <nav
       className={clsx(
         {
-          "!fixed !top-[-52px] !bg-[var(--bg-color)]": isShowHeader,
-          "!shadow": isShowHeader || isSpecialHeader,
+          "header-visible": headerVisible,
+          "!shadow": useSolidHeader,
+          "!bg-[var(--bg-color)]": useSolidHeader && !isSpecialHeader,
         },
-        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar absolute ftco-navbar-light",
+        "navbar header_container navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light fixed z-50",
         className
       )}
       id="ftco-navbar"
