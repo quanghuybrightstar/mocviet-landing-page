@@ -1,32 +1,29 @@
-import HeaderComponent from "@/components/header";
+import HeaderComponent from "@/components/Header";
+import GridIntroImage from "@/components/GridIntroImage";
+import PageIntro from "@/components/motion/PageIntro";
 import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
-import GridIntroImage from "@/components/grid-intro-image";
-import Image from "next/image";
+import ServicesHeroImage from "@/components/services/ServicesHeroImage";
 
-const ServicePage = (props) => {
+const ServicePage = () => {
   return (
     <div className="commondPage homePage">
       <HeaderComponent
         type={TypeHeader.SERVICES.path}
-        className="!bg-white"
         isSpecialHeader
       />
       <div className="container">
-        <section className="px-0 pt-[74px] pb-8 md:pt-[90px] md:pb-11 flex flex-col items-center justify-center md:px-4 ">
-          <h1 className="text-[28px] md:text-[40px]">{INFO.services.title}</h1>
-          <h2
-            className="text-sm md:text-base max-w-[625px] text-center"
-            dangerouslySetInnerHTML={{ __html: INFO.services.desc }}
-          />
-        </section>
-
-        <Image
-          src={INFO.services.thumbnail}
-          width={1240}
-          height={960}
-          alt="Dịch vụ chính"
-          className="object-cover rounded-lg hidden md:block"
+        <PageIntro
+          title={INFO.services.title}
+          descriptionHtml={INFO.services.desc}
+          className="px-0 pt-[75px] pb-2 md:pt-[100px] md:pb-8 flex flex-col items-center justify-center md:px-6"
+          descriptionClassName="text-sm md:text-base max-w-[625px] text-center m-0 font-normal"
         />
+
+        <ServicesHeroImage
+          src={INFO.services.thumbnail}
+          alt="Dịch vụ chính"
+        />
+
         <div className="flex flex-col gap-6 md:gap-16 min-h-[100dvh]">
           {INFO.services.list_services.map((service, index) => (
             <GridIntroImage
@@ -36,6 +33,9 @@ const ServicePage = (props) => {
               description={service.desc}
               srcBg={service.image}
               posImage={!(index % 2) ? "right" : "left"}
+              animated
+              delayMs={index * 80}
+              slideFromMd={index % 2 ? "left" : "right"}
             />
           ))}
         </div>
@@ -44,7 +44,7 @@ const ServicePage = (props) => {
   );
 };
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   return {
     title: `${TypeHeader.SERVICES.name} | ${DataSeo.seoTitle}`,
     description: DataSeo.seoDescription,

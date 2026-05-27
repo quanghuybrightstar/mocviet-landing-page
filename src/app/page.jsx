@@ -1,12 +1,10 @@
-import HeaderComponent from "@/components/header";
+import HeaderComponent from "@/components/Header";
+import HomeAdvantages from "@/components/home/HomeAdvantages";
+import HomeProjectTiles from "@/components/home/HomeProjectTiles";
 import { TypeHeader, INFO, DataSeo } from "@/libs/constants";
-import GridIntroImage from "@/components/grid-intro-image";
-import SlideComponent from "@/components/slide";
-import Parameter from "@/components/ui/parameter";
-import ImageZoom from "@/components/ui/image-zoom";
-import Link from "next/link";
-import BoxAdvantage from "@/components/box-advantage";
-
+import GridIntroImage from "@/components/GridIntroImage";
+import SlideComponent from "@/components/Slide";
+import Parameter from "@/components/ui/Parameter";
 
 export default async function HomePage() {
   /** Home "projects" block: fixed list of work types (thể loại công ty có thể làm), not the Sanity project list. */
@@ -14,37 +12,12 @@ export default async function HomePage() {
 
   return (
     <div className="commondPage homePage">
-      <HeaderComponent type={TypeHeader.HOME.path}></HeaderComponent>
+      <HeaderComponent type={TypeHeader.HOME.path} headerVariant="overHero" />
       <h1 className="hidden">{DataSeo.seoTitle}</h1>
       <SlideComponent />
 
-      <section className="ftco-services bg-light">
-        <div className="container">
-          <div className="row" style={{ position: "relative", zIndex: 2 }}>
-            {INFO.home.advantages.map((advantage) => {
-              return (
-                <div
-                  key={advantage.id}
-                  className="col-md-4 d-flex self-stretch"
-                >
-                  <BoxAdvantage
-                    title={advantage.title}
-                    iconClass={advantage.icon}
-                  >
-                    {advantage.list_details.map((detail, index) => (
-                      <li className="marker-primary pl-2" key={index}>
-                        {detail.content}
-                      </li>
-                    ))}
-                  </BoxAdvantage>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <HomeAdvantages advantages={INFO.home.advantages} />
 
-      {/* Introduction */}
       <GridIntroImage
         nameSection={"Giới thiệu"}
         title={INFO.about.title}
@@ -52,46 +25,17 @@ export default async function HomePage() {
         srcBg={"about.jpg"}
         linkViewMore={TypeHeader.ABOUT.path}
         sectionClass="container"
+        animated
       />
 
-      {/* Parameters */}
       <Parameter />
 
-      {/* Projects */}
-      <section className="ftco-section pb-4 md:pb-2">
-        <div className="container">
-          <div className="row justify-center mb-2 pb-2 md:mb-4">
-            <div className="col-md-7 heading-section">
-              <h2 className="mb-4">{INFO.projects.title}</h2>
-              <p>{INFO.projects.desc}</p>
-            </div>
-          </div>
-        </div>
-        <div className="row no-gutters gap-y-4">
-          {listHome?.map((project) => (
-            <Link
-              prefetch
-              href={`${TypeHeader.PROJECTS.path}/${project.code}`}
-              key={project.id || project.code}
-              className="col-md-6 col-lg-3 min-h-[450px] h-[450px] relative"
-            >
-              <ImageZoom
-                key={project.id || project.code}
-                src={project.src || "/images/projects/project_1.webp"}
-                title={project.title}
-              />
-            </Link>
-          ))}
-        </div>
+      <HomeProjectTiles
+        projects={listHome}
+        title={INFO.projects.title}
+        description={INFO.projects.desc}
+      />
 
-        <div className="flex justify-center text-center pt-4">
-          <Link href={TypeHeader.PROJECTS.path} className="btn-primary-custom">
-            Xem thêm
-          </Link>
-        </div>
-      </section>
-
-      {/* Service Home */}
       <GridIntroImage
         nameSection={"Dịch vụ"}
         title={INFO.services.list_services?.[0].name}
@@ -100,6 +44,9 @@ export default async function HomePage() {
         linkViewMore={TypeHeader.SERVICES.path}
         posImage="right"
         sectionClass="container"
+        animated
+        slideFromMd="right"
+        delayMs={80}
       />
     </div>
   );

@@ -4,11 +4,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1A202C;
+  --foreground: #1a202c;
   --white-color: #fff;
   --primary-color: #e9713d;
   --text-color: #1a202c;
-  --bg-color: #fafafa;
+
+  /* Surfaces & warm text (DESIGN.md: muted, border-light; Stitch project UI) */
+  --surface: #fafafa;
+  --bg-color: var(--surface);
+  --text-heading: #241915;
+  --text-secondary: #57423a;
+  --text-muted: #b3b3b3;
+  --border-light: #e1e5ea;
+  --surface-sheet: #fff8f6;
+  --surface-warm: #fffaf8;
+  --surface-primary-tint: #fff1ec;
+  --surface-card: #f6f6f6;
 }
 
 *,
@@ -36,16 +47,16 @@ body {
 
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e0e0e0
+  background: #e0e0e0;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background: #bdbdbd
+  background: #bdbdbd;
 }
 
 @layer utilities {
@@ -82,7 +93,7 @@ body {
   left: 0;
   right: 0;
   background: #000000;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .list-has-dot {
@@ -99,7 +110,7 @@ body {
     left: calc(50% - 13px);
     width: 26px;
     height: 26px;
-    border: 5px solid #FFF;
+    border: 5px solid #fff;
     background-color: var(--primary-color);
     border-radius: 50%;
     z-index: 2;
@@ -121,7 +132,7 @@ body {
       left: calc(100% + 21px);
       width: 22px;
       height: 22px;
-      border: 5px solid #FFF;
+      border: 5px solid #fff;
       background-color: var(--primary-color);
       border-radius: 50%;
       z-index: 5;
@@ -130,7 +141,6 @@ body {
   }
 
   @media (max-width: 768px) {
-
     &::before,
     &::after,
     .item-dot::before {
@@ -140,16 +150,31 @@ body {
 }
 
 .marker-primary::marker {
-  content: '➤' !important;
+  content: "➤" !important;
   font-size: 16px;
   color: var(--primary-color);
   font-weight: bold;
 }
 
-@keyframes project-list-fade-in-up {
+@keyframes project-detail-zoom-in {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.scroll-hero-zoom,
+.project-detail-hero-zoom {
+  transform-origin: center center;
+  animation: project-detail-zoom-in 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes scroll-hero-content-fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -157,15 +182,90 @@ body {
   }
 }
 
-.project-list-animate {
+.scroll-hero-content,
+.project-detail-hero-content {
+  animation: scroll-hero-content-fade-up 0.7s ease-out 0.35s both;
+}
+
+/* Scroll reveal — hidden states use :not(--visible) so --visible always wins */
+$reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$reveal-ease-opacity: cubic-bezier(0.33, 1, 0.68, 1);
+
+.scroll-reveal,
+.project-detail-fade-up {
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.8s $reveal-ease-opacity,
+    transform 0.95s $reveal-ease;
+}
+
+.scroll-reveal--list,
+.project-detail-fade-up--list {
+  transition:
+    opacity 1.05s $reveal-ease-opacity,
+    transform 1.25s $reveal-ease;
+}
+
+.scroll-reveal:not(.scroll-reveal--visible),
+.project-detail-fade-up:not(.project-detail-fade-up--visible) {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translate3d(0, 18px, 0) scale(0.985);
 }
 
-.project-list-animate--visible {
-  animation: project-list-fade-in-up 0.8s ease-out forwards;
+.scroll-reveal--list:not(.scroll-reveal--visible),
+.project-detail-fade-up--list:not(.project-detail-fade-up--visible) {
+  transform: translate3d(0, 32px, 0) scale(0.96);
 }
 
+@media (min-width: 768px) {
+  .scroll-reveal--md-from-left:not(.scroll-reveal--visible),
+  .project-detail-fade-up--md-from-left:not(.project-detail-fade-up--visible) {
+    transform: translate3d(-28px, 10px, 0) scale(0.98);
+  }
+
+  .scroll-reveal--md-from-right:not(.scroll-reveal--visible),
+  .project-detail-fade-up--md-from-right:not(.project-detail-fade-up--visible) {
+    transform: translate3d(28px, 10px, 0) scale(0.98);
+  }
+
+  .scroll-reveal--list.scroll-reveal--md-from-left:not(.scroll-reveal--visible),
+  .project-detail-fade-up--list.project-detail-fade-up--md-from-left:not(
+      .project-detail-fade-up--visible
+    ) {
+    transform: translate3d(-52px, 18px, 0) scale(0.96);
+  }
+
+  .scroll-reveal--list.scroll-reveal--md-from-right:not(.scroll-reveal--visible),
+  .project-detail-fade-up--list.project-detail-fade-up--md-from-right:not(
+      .project-detail-fade-up--visible
+    ) {
+    transform: translate3d(52px, 18px, 0) scale(0.96);
+  }
+}
+
+.scroll-reveal--visible,
+.project-detail-fade-up--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hero-zoom,
+  .project-detail-hero-zoom,
+  .scroll-hero-content,
+  .project-detail-hero-content {
+    animation: none;
+  }
+
+  .scroll-reveal,
+  .project-detail-fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .commondPage {

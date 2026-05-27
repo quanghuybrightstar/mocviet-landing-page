@@ -1,6 +1,7 @@
-import HeaderComponent from "@/components/header";
+import HeaderComponent from "@/components/Header";
+import ProjectsPageIntro from "@/components/projects/ProjectsPageIntro";
 import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
-import ListProjects from "@/components/projects/list-projects";
+import ListProjects from "@/components/projects/ListProjects";
 import { fetchProjects } from "@/libs/sanity";
 
 /** Revalidate at most every 60s so Sanity publishes show up without full rebuild. */
@@ -10,19 +11,16 @@ export default async function ProjectPage() {
   const projects = await fetchProjects();
 
   return (
-    <div className="commondPage homePage min-h-dvh bg-[#fffaf8] md:bg-[#fafafa]">
+    <div className="commondPage homePage min-h-dvh bg-surface-warm md:bg-surface">
       <HeaderComponent
         type={TypeHeader.PROJECTS.path}
-        className="!bg-white"
         isSpecialHeader
       />
       <div className="container">
-        <section className="pt-[74px] pb-8 md:pt-[90px] md:pb-11 flex flex-col items-center justify-center md:px-4 ">
-          <h1 className="text-[28px] md:text-[40px]">{INFO.projects.title}</h1>
-          <h2 className="text-sm md:text-base max-w-[960px] text-center">
-            {INFO.projects.desc}
-          </h2>
-        </section>
+        <ProjectsPageIntro
+          title={INFO.projects.title}
+          description={INFO.projects.desc}
+        />
         <div className="flex flex-col gap-8 md:gap-16 min-h-[100dvh]">
           <ListProjects projects={projects} />
         </div>

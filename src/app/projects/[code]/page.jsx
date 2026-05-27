@@ -1,11 +1,9 @@
-import HeaderComponent from "@/components/header";
+import HeaderComponent from "@/components/Header";
+import ProjectDetailDesktop from "@/components/projects/ProjectDetailDesktop";
+import ProjectDetailMobile from "@/components/projects/ProjectDetailMobile";
 import { TypeHeader, DataSeo, INFO } from "@/libs/constants";
-import ListImagePreview from "@/components/list-image-preview";
-import Image from "next/image";
-import MyBreadCrumb from "@/components/my-breadcrumb";
+import { getProjectDetailByCode, fetchProjects } from "@/libs/sanity";
 import { notFound } from "next/navigation";
-import { calistogaFont } from "@/libs/fonts";
-import { fetchProjectByCode, fetchProjects } from "@/libs/sanity";
 
 /** Revalidate at most every 60s so Sanity publishes show up without full rebuild. */
 export const revalidate = 60;
@@ -17,79 +15,87 @@ export async function generateStaticParams() {
 
 export default async function ProjectDetailPage({ params }) {
   const { code } = params;
-  const project = await fetchProjectByCode(code);
+  const project = await getProjectDetailByCode(code);
   if (!project) return notFound();
 
-  const { title = "", images = [] } = project;
+  const {
+    title = "",
+    images = [],
+    description,
+    tags,
+    tag,
+    designConcept,
+    functionalRooms,
+    contentSections,
+    projectMeta,
+    relatedResolved,
+  } = project;
+
+  const heroSubtitle =
+    description?.trim() ||
+    `${INFO.projects.seo_desc_detail} ${title}`;
+
   const breadCrumbs = [
     { url: TypeHeader.PROJECTS.path, name: TypeHeader.PROJECTS.name },
     { url: "", name: title },
   ];
 
+  const sectionProps = {
+    designConcept,
+    functionalRooms: functionalRooms ?? [],
+    contentSections: contentSections ?? [],
+    projectMeta,
+  };
+
   return (
     <div className="commondPage homePage">
       <HeaderComponent
         type={TypeHeader.PROJECTS.path}
-        className="!bg-white"
-        isSpecialHeader
+        headerVariant="overHero"
       />
-      <div className="container">
-        <div className="pt-[74px] md:pt-[90px]">
-          <MyBreadCrumb breadCrumbs={breadCrumbs} />
-        </div>
-        <section className="pt-6 pb-8 md:pt-10 md:pb-11 flex flex-col items-center justify-center px-4 ">
-          <h1 className="text-[32px] md:text-[40px]">{title}</h1>
-          <h2 className="text-sm md:text-base max-w-[960px] text-center">
-            {INFO.projects.seo_desc_detail} {title}
-          </h2>
-        </section>
-        <div className=" flex flex-col gap-10 md:gap-16 min-h-[100dvh]">
-          <ListImagePreview
-            listImages={images}
-            classNameList="!grid !grid-cols-1 md:!grid-cols-2 lg:!grid-cols-3 !gap-4 !gap-y-6"
-          >
-            {images?.map((image, index) => (
-              <div
-                key={index}
-                className="relative h-[360px] cursor-zoom-in group overflow-hidden rounded-lg"
-              >
-                <Image
-                  src={image}
-                  alt={title}
-                  title={title}
-                  width={720}
-                  height={720}
-                  className="!object-cover !object-center w-full h-full group-hover:scale-125 scale-100 duration-500 ease-in-out rounded-lg border border-[#e1e5ea]"
-                  priority={index < 6}
-                />
-                <div
-                  className={`${calistogaFont.className} text-2xl text-bold min-w-10 min-h-10 px-2 absolute top-0 left-0 rounded-tl-lg rounded-br-lg flex items-center justify-center primary-color bg-[#f0e9db]`}
-                >
-                  {index + 1}
-                </div>
-              </div>
-            ))}
-          </ListImagePreview>
-        </div>
-      </div>
+
+      <ProjectDetailMobile
+        title={title}
+        images={images ?? []}
+        description={description}
+        tags={tags}
+        tag={tag}
+        {...sectionProps}
+        relatedProjects={relatedResolved ?? []}
+        breadCrumbs={breadCrumbs}
+      />
+
+      <ProjectDetailDesktop
+        title={title}
+        heroSubtitle={heroSubtitle}
+        images={images ?? []}
+        breadCrumbs={breadCrumbs}
+        {...sectionProps}
+        relatedProjects={relatedResolved ?? []}
+      />
     </div>
   );
 }
 
 export async function generateMetadata({ params }) {
   const { code } = params;
-  const project = await fetchProjectByCode(code);
+  const project = await getProjectDetailByCode(code);
   if (!project) return notFound();
 
-  const { title = "", images = [] } = project;
+  const { title = "", images = [], description } = project;
   const firstImage = images?.[0];
   const seoImage = firstImage
-    ? (firstImage.startsWith("http") ? firstImage : `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${firstImage}`)
+    ? firstImage.startsWith("http")
+      ? firstImage
+      : `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${firstImage}`
     : DataSeo.seoImage;
+
+  const metaDesc =
+    description?.trim() || `${INFO.projects.seo_desc_detail}${title}`;
 
   return {
     title: `${TypeHeader.PROJECTS.name} ${title} | ${DataSeo.seoTitle}`,
-    description: INFO.projects.seo_desc_detail + title,
+    description: metaDesc,
     openGraph: { images: [seoImage] },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${code}`,

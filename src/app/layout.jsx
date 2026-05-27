@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-css-tags */
 import { interFont } from "@/libs/fonts";
 import "@/styles/global.scss";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import { DataSeo } from "@/libs/constants";
 import NextTopLoader from "nextjs-toploader";
-import ButtonGo2Top from "@/components/button-go-2-top";
+import ButtonGo2Top from "@/components/ButtonGo2Top";
 import Script from "next/script";
 
 export default function RootLayout({ children }) {
