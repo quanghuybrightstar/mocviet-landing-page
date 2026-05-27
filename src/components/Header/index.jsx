@@ -7,13 +7,13 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import clsx from "clsx";
 import { IconMenu } from "@public/assets/icons";
 
-/** Gần đỉnh trang: luôn hiện header */
+/** Always show header near page top. */
 const SCROLL_TOP_THRESHOLD = 12;
-/** Lệch scroll tối thiểu để đổi hướng (tránh giật) */
+/** Min scroll delta before toggling visibility (debounce). */
 const SCROLL_DELTA_MIN = 8;
-/** Sau ngưỡng này (home): header hiện dạng nền solid + chữ tối */
+/** Home: solid background + dark text after this scroll offset. */
 const SCROLL_SOLID_START = 450;
-/** Scroll qua ~52% viewport: header đậm hơn trên hero mobile */
+/** Mobile hero: solid header after ~52% viewport scroll. */
 const OVER_HERO_SOLID_RATIO = 0.52;
 
 const HeaderComponent = (props) => {
@@ -77,7 +77,6 @@ const HeaderComponent = (props) => {
   }, [handleScroll]);
 
   const isOverHero = headerVariant === "overHero";
-  const isOverHeroMobile = isOverHero && isMobileViewport;
   const overHeroScrolled =
     scrollY >
     (typeof window !== "undefined"
@@ -86,17 +85,16 @@ const HeaderComponent = (props) => {
 
   const useSolidHeader =
     headerVisible &&
-    (isOverHero && !isMobileViewport
-      ? true
-      : isOverHeroMobile
+    (isOverHero
+      ? isMobileViewport
         ? overHeroScrolled
-        : isSpecialHeader || scrollY > SCROLL_SOLID_START);
+        : scrollY > SCROLL_SOLID_START
+      : isSpecialHeader || scrollY > SCROLL_SOLID_START);
 
-  const useDarkNavLinks =
-    isOverHero || useSolidHeader || isSpecialHeader;
+  const useDarkNavLinks = useSolidHeader || isSpecialHeader;
 
-  /** Nền sáng + chữ tối (project detail, services, projects list, …) */
-  const useLightHeaderBar = isOverHero || isSpecialHeader || useSolidHeader;
+  /** Light background bar (services, project list, scrolled hero). */
+  const useLightHeaderBar = isSpecialHeader || useSolidHeader;
 
   const renderHeaderItems = (item) => {
     const linkClass = useDarkNavLinks

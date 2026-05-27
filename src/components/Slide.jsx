@@ -22,7 +22,6 @@ const SlideComponent = () => {
     },
   ];
 
-  // Render Slides
   const renderSlideItem = (slide) => {
     return (
       <SwiperSlide key={slide.id} className="slider-item js-fullheight">
