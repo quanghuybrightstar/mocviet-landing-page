@@ -52,6 +52,7 @@ export default async function ProjectDetailPage({ params }) {
       <HeaderComponent
         type={TypeHeader.PROJECTS.path}
         headerVariant="overHero"
+        isSpecialHeader
       />
 
       <ProjectDetailMobile
